@@ -96,19 +96,6 @@ html, body
     /*filter: grayscale(100%);*/
 }
 
-.profile_pic_cris {
-    width:  200px;
-    height: 200px;
-    object-fit: cover;
-    margin: 10px;
-    clear: both;
-    margin: 0%;
-    transform: rotate(-90deg);
-    border-radius: 50%;
-    /*-webkit-filter: grayscale(100%);*/
-    /*filter: grayscale(100%);*/
-}
-
 #flex_break{
     width: 100%;
     margin: 0px;
