@@ -85,6 +85,25 @@ html, body
     margin-bottom: 5px;
 }
 
+
+.mail{
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(82, 82, 82);
+}
+
+#mail_lex, #mail_nico{
+    font-size: 12px;
+}
+
+#mail_cat{
+    font-size: 11px;
+}
+
+#mail_cris{
+    font-size: 10px;
+}
+
 .profile_pic {
     height: 200px;
     width:  200px;
