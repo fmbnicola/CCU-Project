@@ -1,10 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation'
 
 import Icon from "react-native-vector-icons/FontAwesome";
+
+//import screens
+import HomeScreen from "./Screens/HomeScreen" 
+import FavoritesScreen from "./Screens/FavoritesScreen"
+import SettingsScreen from "./Screens/SettingsScreen"
+
 
 export default class App extends React.Component {
   render() {
@@ -14,46 +19,7 @@ export default class App extends React.Component {
   }
 }
 
-class HomeScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> This is my Home screen </Text>
-      </View>
-    );
-  }
-}
-
-class ExploreScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
-        <Text> This is my Explore screen </Text>
-      </View>
-    );
-  }
-}
-
-class NotificationsScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>
-        <Text> This is my Notifications screen </Text>
-      </View>
-    );
-  }
-}
-
-class ProfileScreen extends React.Component {
-  render() {
-    return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#d0d0d0'}}>
-        <Text> This is my Profile screen </Text>
-      </View>
-    );
-  }
-}
-
+//Navigator -> Allows switching between different app screens 
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: {
@@ -64,27 +30,19 @@ const bottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    Explore: {
-      screen: ExploreScreen,
+    Favorites: {
+      screen: FavoritesScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="comments" size={25} color={tintColor} />
+          <Icon name="star" size={25} color={tintColor} />
         )
       }
     },
-    Notifications: {
-      screen: NotificationsScreen,
+    Settings: {
+      screen: SettingsScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="search" size={25} color={tintColor} />
-        )
-      }
-    },
-    Profile: {
-      screen: ProfileScreen,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="user" size={25} color={tintColor} />
+          <Icon name="cog" size={25} color={tintColor} />
         )
       }
     },
