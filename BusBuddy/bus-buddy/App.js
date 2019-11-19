@@ -1,5 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View, FlatList} from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Header from './components/Header';
 import InputBar from './components/InputBar';
 import TodoItem from './components/TodoItem';
