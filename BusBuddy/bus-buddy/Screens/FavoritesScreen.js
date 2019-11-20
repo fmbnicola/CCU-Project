@@ -14,7 +14,7 @@ export default class FavoritesScreen extends React.Component{
   *                                              ^                 |
   *                                              |_________________|
   */
-
+  
   constructor(){
     super();
 
