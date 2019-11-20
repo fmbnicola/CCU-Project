@@ -2,12 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from 'react-native';
 
 import {createStackNavigator} from 'react-navigation-stack';
-import Percurso_inputBus from "./IntroduzirPercurso/Percurso_inputBus"
-import Localizacao from "./MinhaLocalizacao/Localizacao"
-import ParagensProx from "./ParagensProximas/ParagensProx"
-import PlanearRot from "./PlanearRota/PlanearRot"
 
-export default class HomeScreen extends React.Component {
+
+export default class Localizacao extends React.Component {
   /*static navigationOptions = {
     title: 'Welcome',
   };
@@ -33,27 +30,8 @@ export default class HomeScreen extends React.Component {
           <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
           <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
           <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
-          <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
-               <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
-                 <Image style={styles.image} source={require('./bus-stop.png')} />
-                     <Text style = {styles.buttonText}>Paragens Próximas</Text>
-               </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.button}>
-              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                <Image style={styles.image} source={require('./find.png')} />
-                    <Text style = {styles.buttonText}>Introduzir Percurso</Text>
-              </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('Rota', {})}} style={styles.button}>
-              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                <Image style={styles.image} source={require('./route.png')} />
-                    <Text style = {styles.buttonText}>Planear Rota</Text>
-              </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('Local', {})}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {Alert.alert('4')}} style={styles.button}>
               <View style = {{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
-                <Image style={styles.image} source={require('./local.png')} />
                     <Text style = {styles.buttonText}>Minha Localização</Text>
               </View>
           </TouchableOpacity>
@@ -90,15 +68,6 @@ export default class HomeScreen extends React.Component {
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'left',
-   },
-
-   image:{
-     position:'relative',
-     right:30,
-     width:25,
-     height:25,
-     margin:30,
-
    },
 
   });

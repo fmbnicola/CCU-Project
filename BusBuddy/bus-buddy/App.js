@@ -6,10 +6,11 @@ import { createAppContainer } from 'react-navigation'
 import Icon from "react-native-vector-icons/FontAwesome";
 
 //import screens
-import HomeScreen from "./Screens/HomeScreen" 
+import HomeScreen from "./Screens/HomeScreen"
 import FavoritesScreen from "./Screens/FavoritesScreen"
 import SettingsScreen from "./Screens/SettingsScreen"
 
+import TestNavigator from "./TestNavigator";
 
 export default class App extends React.Component {
   render() {
@@ -19,11 +20,11 @@ export default class App extends React.Component {
   }
 }
 
-//Navigator -> Allows switching between different app screens 
+//Navigator -> Allows switching between different app screens
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: TestNavigator,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon name="home" size={25} color={tintColor} />
