@@ -5,7 +5,7 @@ import {
   View,
   Text} from 'react-native';
 
-import BusStopList from './API_components/BusStopList';
+import BusStopList from './../API_components/BusStopList';
 
 export default class NearestStopsScreen extends React.Component {
 

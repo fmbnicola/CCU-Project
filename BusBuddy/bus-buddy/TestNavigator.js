@@ -6,8 +6,6 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 //import screens
 import HomeScreen from "./Screens/HomeScreen"
-import FavoritesScreen from "./Screens/FavoritesScreen"
-import SettingsScreen from "./Screens/SettingsScreen"
 import Percurso_inputBus from "./Screens/IntroduzirPercurso/Percurso_inputBus"
 import Localizacao from "./Screens/MinhaLocalizacao/Localizacao"
 import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
