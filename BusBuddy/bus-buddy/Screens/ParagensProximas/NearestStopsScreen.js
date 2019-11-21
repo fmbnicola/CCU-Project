@@ -34,9 +34,10 @@ export default class NearestStopsScreen extends React.Component {
   render() {
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <BusStopList target = 'nearest' lat = '38.7363140' lon = '-9.1365229'  updateSelected = {this.updateSelected}/>
+        {/*<BusStopList target = 'nearest' updateSelected = {this.updateSelected}/>/*}
         {/*<BusStopList target = 'all' updateSelected = {this.updateSelected}/>*/}
-        {/*<BusStopList target = 'route' route_no = '727' direction = 'up' updateSelected = {this.updateSelected}/>*/}
+        {/*<BusStopList target = 'route' route_no = '727' updateSelected = {this.updateSelected}/>*/}
+        <BusStopList target = 'route' route_no = '727'  updateSelected = {this.updateSelected}/>
       </View>
     );
   }

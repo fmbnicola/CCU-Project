@@ -7,7 +7,7 @@ import {
 
 import RouteList from '../API_components/RouteList';
 
-export default class NearestStopsScreen extends React.Component {
+export default class RoutesForSpecificStopScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -29,12 +29,12 @@ export default class NearestStopsScreen extends React.Component {
     console.log(chosen_stop);
   }
 
-
-  //FIXME: here the coords are hard-coded... for now :P
+  
   render() { 
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <RouteList target = 'bus_stop' bus_stop_id='11102' sort_by='route_no' updateSelected = {this.updateSelected}/>
+        {/*<RouteList target = 'all' sort_by='route_no' updateSelected = {this.updateSelected}/>*/}
+        <RouteList target = 'bus_stop' bus_stop_id='11102' sort_by='route_name' updateSelected = {this.updateSelected}/>
       </View>
     );
   }

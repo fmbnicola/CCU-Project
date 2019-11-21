@@ -1,6 +1,9 @@
 
 const api_root = "https://carris.tecmic.com";
 
+
+/* ------------------ BUS STOPS ------------------ */
+
 //FIXME: here we can stop passing the props to each of the functions because 
 //       these can be fetched from the element itself
 
@@ -37,44 +40,72 @@ export const getNearestBusStops = async (element, lat, lon) => {
 }
 
 
-export const getRouteBusStops = async (element, route_no, direction) => {
+//get all the stops in a route 
+export const getRouteBusStops = async (element) => {
 
-    fetch(api_root + "/api/v2.5/Routes/" + route_no, {method: 'GET'})
+    fetch(api_root + "/api/v2.5/Routes/" + element.props.route_no, {method: 'GET'})
     .then(response => response.json())
     .then((responseJson)=> {
 
         //filter responseJson so that only bus stops are displayed
         //routes can be circular.. or linear with up or down direction
         var is_circ = responseJson.isCirc;
-        
         if(is_circ){
             var itinerary = responseJson.variants[0].circItinerary.connections;
         }
         else{
-            if(direction == 'up'){
-                var itinerary = responseJson.variants[0].upItinerary.connections;
-            }
-            else{
-                var itinerary = responseJson.variants[0].downItinerary.connections;
-            }
+            var itinerary = responseJson.variants[0].upItinerary.connections;
         }
 
-        //get stops        
-        var response = [] 
+        //get stops
+        var stops = [] 
         for(stop of itinerary){
-            response.push(stop.busStop)
+            stops.push(stop.busStop)
+        }
+
+        //get values of ini and fin properties
+        var ini_id = element.props.initial_stop;
+        var fin_id = element.props.final_stop;
+        if(ini_id != fin_id && (fin_id == null || ini_id == null)){
+            console.log("Error -> initial and final stop must be supplied");
+            return null;
+        }
+        if(ini_id == fin_id && ini_id != null){
+            console.log("Error -> initial stop is the same as final stop");
+            return null;
+        }
+
+        //if ini or fin stops were given, get their index in list
+        if(ini_id != null || fin_id != null){
+
+            var ini_s = (ini_id == null)? 0            : stops.findIndex(stop => stop.id == ini_id);
+            var fin_s = (fin_id == null)? stops.length : stops.findIndex(stop => stop.id == fin_id);
+
+            if(ini_s > fin_s){
+                stops = stops.slice(fin_s, ini_s);
+                stops.reverse();
+            }
+            else{
+                stops = stops.slice(ini_s, fin_s);
+            }
         }
 
         //update element state
         element.setState({
             loading: false,
-            dataSource: response
+            dataSource: stops
         })
     })
     .catch(error=>console.log(error)) //to catch the errors if any
 }
 
 
+
+
+
+
+
+/* ------------------ ROUTES ------------------ */
 
 //sort routes array (alphabetic by route_name or numerical by bus_no (default)) 
 const sortRoutes = (routes_array, sortBy) => {
@@ -145,6 +176,44 @@ export const getStopRoutes = async(element) => {
             dataSource: responseJson
         })
         console.log(responseJson);
+    })
+    .catch(error=>console.log(error)) //to catch the errors if any
+}
+
+
+
+
+
+
+/* ------------------ BUSES ------------------ */
+
+export const getBusStopEstimation = async(element) => {
+
+    var bus_stop_id = element.props.bus_stop_id;
+    
+    var num_results = element.props.num_results;
+    num_results = (num_results == null)? 3 : num_results;
+
+    fetch(api_root + "/api/v2.5/Estimations/busStop/" + bus_stop_id + "/top/" + num_results , {method: 'GET'})
+    .then(response => response.json())
+    .then((responseJson)=> {
+
+        console.log(responseJson);
+
+        //sort
+        var sort_by = element.props.sort_by;
+        if(sort_by != null){
+            responseJson = sortRoutes(responseJson, sort_by);
+        }
+        else{
+
+        }
+        
+        element.setState({
+            loading: false,
+            dataSource: responseJson
+        })
+        //console.log(responseJson);
     })
     .catch(error=>console.log(error)) //to catch the errors if any
 }

@@ -7,10 +7,10 @@ import {
   Text,
   TouchableOpacity} from 'react-native';
 
-import {getAllRoutes, getStopRoutes, getStopRoutesEstimation} from './APIFunctions';
+import {getBusStopEstimation} from './APIFunctions';
 
 
-export default class RouteList extends React.Component {
+export default class BusList extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,29 +21,20 @@ export default class RouteList extends React.Component {
   }
 
   //CUSTOM PROPERTIES
-  //target      -> ['all', 'bus_stop', 'bus_stop_estimation'] ('all' is default)
   //sort_by     -> ['bus_no', 'route_name'] (wont sort by default)
   //bus_stop_id -> can be passed any valid bus_stop_id (if no valid id is given when target 'bus_stop', list will be empty)
+  //num_results -> can be used when target 'bus_stop_estimation' to dictate number os results in list (default is 3)
 
   //initialize data, this is dependent on the 'target' property
   componentDidMount(){
 
-    switch(this.props.target){
-
-      case 'bus_stop':
-        getStopRoutes(this);
-      break;
-
-      case 'all':
-      default:
-        getAllRoutes(this);
-      break;
-    }
+    getBusStopEstimation(this);
+ 
   }
 
 
   //update parent object with the stop that was selected
-  selectRoute(stop){
+  selectBus(stop){
     this.props.updateSelected(stop);
   }
 
@@ -65,9 +56,8 @@ export default class RouteList extends React.Component {
           keyExtractor = { (item) => item.id.toString()}
           
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.route} onPress={this.selectRoute.bind(this, item)}>
+            <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
               <Text>{item.routeNumber}</Text>
-              <Text>{item.name}</Text>
             </TouchableOpacity>
           )}
 
@@ -103,7 +93,7 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: "#fff"
   },
-  route:{
+  bus:{
     justifyContent: "center",
     alignItems: "center",
     minHeight: 50

@@ -20,21 +20,26 @@ export default class BusStopList extends React.Component {
     };
   }
 
+  //CUSTOM PROPERTIES
+  //target       -> ['all', 'nearest', 'route'...] ('all' is default)
+  
+  //To be used when target='route':
+  //route_no     -> (mandatory) must be a valid route_number
+  //initial_stop -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the first stop in route
+  //final_stop   -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the last stop in route (also dictates direction)
+  //*provide either both or neither props
 
-  //initialize data -> this is dependent on the 'target' prop which can 
-  //take values ['all', 'nearest', 'route'...] ('all' is default)
+  //initialize data, this is dependent on the 'target' property
   componentDidMount(){
 
     switch(this.props.target){
 
       case 'route':
-          var route_no  = this.props.route_no;
-          var direction = this.props.direction; 
-          getRouteBusStops(this, route_no, direction);
+          getRouteBusStops(this);
       break;
 
       case 'nearest':
-        //this will be replaced with actual coords of user
+        //FIXME: this will be replaced with actual coords of user
         var lat = '38.7363079';
         var lon = '-9.1365175';
         getNearestBusStops(this, lat, lon);
