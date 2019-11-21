@@ -7,10 +7,10 @@ import {
   Text,
   TouchableOpacity} from 'react-native';
 
-import {getAllBusStops, getNearestBusStops, getRouteBusStops} from './APIFunctions';
+import {getAllRoutes, getStopRoutes} from './APIFunctions';
 
 
-export default class BusStopList extends React.Component {
+export default class RouteList extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,41 +20,35 @@ export default class BusStopList extends React.Component {
     };
   }
 
+  //CUSTOM PROPERTIES
+  //target      -> ['all', 'bus_stop', ...] ('all' is default)
+  //sort_by     -> ['bus_no', 'route_name'] (wont sort by default)
+  //bus_stop_id -> [any valid, bus stop id] (if no valid id is given wehn target 'bus_stop', list will be empty)
 
-  //initialize data -> this is dependent on the 'target' prop which can 
-  //take values ['all', 'nearest', 'route'...] ('all' is default)
+  //initialize data, this is dependent on the 'target' property
   componentDidMount(){
 
     switch(this.props.target){
 
-      case 'route':
-          var route_no  = this.props.route_no;
-          var direction = this.props.direction; 
-          getRouteBusStops(this, route_no, direction);
-      break;
-
-      case 'nearest':
-        //this will be replaced with actual coords of user
-        var lat = '38.7363079';
-        var lon = '-9.1365175';
-        getNearestBusStops(this, lat, lon);
+      case 'bus_stop':
+        getStopRoutes(this);
       break;
 
       case 'all':
       default:
-        getAllBusStops(this);
+        getAllRoutes(this);
       break;
     }
   }
 
 
   //update parent object with the stop that was selected
-  selectStop(stop){
+  selectRoute(stop){
     this.props.updateSelected(stop);
   }
 
 
-  //render busStopList
+  //render RouteList
   render(){
     if(this.state.loading){
       return( 
@@ -71,9 +65,9 @@ export default class BusStopList extends React.Component {
           keyExtractor = { (item) => item.id.toString()}
           
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.stop} onPress={this.selectStop.bind(this, item)}>
+            <TouchableOpacity style={styles.route} onPress={this.selectRoute.bind(this, item)}>
+              <Text>{item.routeNumber}</Text>
               <Text>{item.name}</Text>
-              <Text>{item.publicId}</Text>
             </TouchableOpacity>
           )}
 
@@ -109,7 +103,7 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: "#fff"
   },
-  stop:{
+  route:{
     justifyContent: "center",
     alignItems: "center",
     minHeight: 50

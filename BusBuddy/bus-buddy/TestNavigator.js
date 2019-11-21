@@ -8,7 +8,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import HomeScreen from "./Screens/HomeScreen"
 import Percurso_inputBus from "./Screens/IntroduzirPercurso/Percurso_inputBus"
 import Localizacao from "./Screens/MinhaLocalizacao/Localizacao"
-import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
+//import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
+import ParagensProx from "./Screens/ParagensProximas/StopRoutesScreen"
 import PlanearRot from "./Screens/PlanearRota/PlanearRot"
 
 const TestNavigator = createStackNavigator({
@@ -16,7 +17,7 @@ const TestNavigator = createStackNavigator({
   InputBus: {screen: Percurso_inputBus},
   Local: {screen: Localizacao},
   Paragens: {screen: ParagensProx},
-  Rota: {screen: PlanearRot},
+  Rota: {screen: PlanearRot}
 },
 {
     headerMode: 'none',
