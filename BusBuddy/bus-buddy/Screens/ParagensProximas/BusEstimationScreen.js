@@ -5,9 +5,9 @@ import {
   View,
   Text} from 'react-native';
 
-import BusStopList from './../API_components/BusStopList';
+import BusList from './../API_components/BusList';
 
-export default class NearestStopsScreen extends React.Component {
+export default class BusEstimationScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -34,10 +34,7 @@ export default class NearestStopsScreen extends React.Component {
   render() {
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        {/*<BusStopList target = 'nearest' updateSelected = {this.updateSelected}/>/*}
-        {/*<BusStopList target = 'all' updateSelected = {this.updateSelected}/>*/}
-        {/*<BusStopList target = 'route' route_no = '727' updateSelected = {this.updateSelected}/>*/}
-        <BusStopList target = 'route' route_no = '727' initial_stop='3910' final_stop='1802' updateSelected = {this.updateSelected}/>
+        <BusList bus_stop_id='3913' num_results='10' updateSelected = {this.updateSelected}/>
       </View>
     );
   }

@@ -7,60 +7,47 @@ import {
   Text,
   TouchableOpacity} from 'react-native';
 
-import {getAllBusStops, getNearestBusStops, getRouteBusStops} from './APIFunctions';
+import {getBusStopEstimation} from './APIFunctions';
 
 
-export default class BusStopList extends React.Component {
+export default class BusList extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
         loading: true,
+        serviceDown: false,
         dataSource:[]
     };
   }
 
   //CUSTOM PROPERTIES
-  //target       -> ['all', 'nearest', 'route'...] ('all' is default)
-  
-  //To be used when target='route':
-  //route_no     -> (mandatory) must be a valid route_number
-  //initial_stop -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the first stop in route
-  //final_stop   -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the last stop in route (also dictates direction)
-  //*provide either both or neither props
+  //bus_stop_id -> can be passed any valid bus_stop_id (if no valid id is given when target 'bus_stop', list will be empty)
+  //num_results -> can be used when target 'bus_stop_estimation' to dictate number os results in list (default is 3)
 
   //initialize data, this is dependent on the 'target' property
   componentDidMount(){
 
-    switch(this.props.target){
-
-      case 'route':
-          getRouteBusStops(this);
-      break;
-
-      case 'nearest':
-        //FIXME: this will be replaced with actual coords of user
-        var lat = '38.7363079';
-        var lon = '-9.1365175';
-        getNearestBusStops(this, lat, lon);
-      break;
-
-      case 'all':
-      default:
-        getAllBusStops(this);
-      break;
-    }
+    getBusStopEstimation(this);
+ 
   }
 
 
   //update parent object with the stop that was selected
-  selectStop(stop){
+  selectBus(stop){
     this.props.updateSelected(stop);
   }
 
 
-  //render busStopList
+  //render RouteList
   render(){
+    if(this.state.serviceDown){
+      return( 
+        <View style={styles.loader}> 
+          <Text>Estimation Service is down.</Text>
+          <Text>Sorry for the inconvenience.</Text>
+        </View>
+    )}
     if(this.state.loading){
       return( 
         <View style={styles.loader}> 
@@ -73,12 +60,13 @@ export default class BusStopList extends React.Component {
 
           data= {this.state.dataSource}
 
-          keyExtractor = { (item) => item.id.toString()}
+          keyExtractor={(item, index) => index.toString()}
           
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.stop} onPress={this.selectStop.bind(this, item)}>
-              <Text>{item.name}</Text>
-              <Text>{item.publicId}</Text>
+            <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
+              <Text>{item.routeNumber} - {item.routeName}</Text>
+              <Text>Sentido: {item.destination}</Text>
+              <Text>{item.timeLeft} mins</Text>
             </TouchableOpacity>
           )}
 
@@ -114,7 +102,7 @@ const styles = StyleSheet.create({
     margin: 5,
     backgroundColor: "#fff"
   },
-  stop:{
+  bus:{
     justifyContent: "center",
     alignItems: "center",
     minHeight: 50
