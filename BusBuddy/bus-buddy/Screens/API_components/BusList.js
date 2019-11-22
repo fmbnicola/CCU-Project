@@ -21,7 +21,6 @@ export default class BusList extends React.Component {
   }
 
   //CUSTOM PROPERTIES
-  //sort_by     -> ['bus_no', 'route_name'] (wont sort by default)
   //bus_stop_id -> can be passed any valid bus_stop_id (if no valid id is given when target 'bus_stop', list will be empty)
   //num_results -> can be used when target 'bus_stop_estimation' to dictate number os results in list (default is 3)
 
@@ -53,11 +52,13 @@ export default class BusList extends React.Component {
 
           data= {this.state.dataSource}
 
-          keyExtractor = { (item) => item.id.toString()}
+          keyExtractor={(item, index) => index.toString()}
           
           renderItem = { ({ item }) => (
             <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
-              <Text>{item.routeNumber}</Text>
+              <Text>{item.routeNumber} - {item.routeName}</Text>
+              <Text>Sentido: {item.destination}</Text>
+              <Text>{item.timeLeft}</Text>
             </TouchableOpacity>
           )}
 

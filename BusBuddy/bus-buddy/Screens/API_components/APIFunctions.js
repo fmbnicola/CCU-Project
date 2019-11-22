@@ -187,33 +187,44 @@ export const getStopRoutes = async(element) => {
 
 /* ------------------ BUSES ------------------ */
 
+//this function is used to convert string time stamp to js Date object
+const getTimeLeft = (UNIX_timestamp) => {
+    var estimationTime = new Date(UNIX_timestamp * 1000);
+    var currentTime = new Date();
+
+    var difference =  estimationTime - currentTime;
+
+    /*var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;*/
+
+    return difference.getMinutes;
+  }
+
 export const getBusStopEstimation = async(element) => {
 
     var bus_stop_id = element.props.bus_stop_id;
     
     var num_results = element.props.num_results;
-    num_results = (num_results == null)? 3 : num_results;
+    num_results = (num_results == null)? '3' : num_results;
 
     fetch(api_root + "/api/v2.5/Estimations/busStop/" + bus_stop_id + "/top/" + num_results , {method: 'GET'})
     .then(response => response.json())
     .then((responseJson)=> {
 
-        console.log(responseJson);
-
-        //sort
-        var sort_by = element.props.sort_by;
-        if(sort_by != null){
-            responseJson = sortRoutes(responseJson, sort_by);
-        }
-        else{
-
+        for(bus of responseJson){
+            bus.timeLeft = getTimeLeft(bus.time); //FIXME -> haven't tested this 
         }
         
         element.setState({
             loading: false,
             dataSource: responseJson
         })
-        //console.log(responseJson);
     })
     .catch(error=>console.log(error)) //to catch the errors if any
 }
