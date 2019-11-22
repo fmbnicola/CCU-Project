@@ -23,6 +23,8 @@ import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
 
 import PlanearRot from "./Screens/PlanearRota/PlanearRot"
 import ConfirmBus from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
+import BusDirection from "./Screens/IntroduzirPercurso/BusDirection"
+
 
 const TestNavigator = createStackNavigator({
   Home: {screen: HomeScreen},
@@ -30,7 +32,8 @@ const TestNavigator = createStackNavigator({
   Local: {screen: Localizacao},
   Paragens: {screen: ParagensProx},
   Rota: {screen: PlanearRot},
-  ConfirmBus: {screen: ConfirmBus}
+  ConfirmBus: {screen: ConfirmBus},
+  BusDir: {screen: BusDirection}
 },
 {
     headerMode: 'none',

@@ -50,7 +50,7 @@ export default class Percurso_inputBus extends React.Component {
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}/>
             <TouchableOpacity
-              onPress = {() => {navigate('ConfirmBus', {numeroAutocarro: this.state.text})}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {navigate('ConfirmBus', {busNumber: this.state.text})}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar autocarro"
               >

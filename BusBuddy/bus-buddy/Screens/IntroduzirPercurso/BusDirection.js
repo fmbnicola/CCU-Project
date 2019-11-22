@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
-export default class ConfirmBusNumber extends React.Component {
+export default class BusDirection extends React.Component {
   static navigationOptions={
     title: "ConfirmBus",
   };
@@ -30,19 +30,16 @@ export default class ConfirmBusNumber extends React.Component {
                    <Text style = {styles.backText}>BACK</Text>
                  </View>
             </TouchableOpacity>
-            <Text style = {styles.Text}>Escolheu este autocarro </Text>
-            <Text style = {styles.Text}>{params.busNumber}</Text>
-            <TouchableOpacity
-              onPress = {() => {navigate('InputBus', {})}}  //falta por paramentos para passarem para o proximo ecra
-              style = {styles.button}
-              accessibilityHint = "Negar numero do autocarro"
-              >
-                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style={styles.image} source={require('./cancel.png')} />
-                 </View>
+            <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text>{params.busNumberConf}</Text>
+
+            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.destinos}>
+                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+                      <Text style = {styles.buttonText}>Fetais</Text>
+                </View>
             </TouchableOpacity>
+
             <TouchableOpacity
-              onPress = {() => {{navigate('BusDir', {busNumberConf:params.busNumber})}}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {{navigate('BusDir', {})}}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar numero do autocarro"
               >
@@ -119,6 +116,29 @@ export default class ConfirmBusNumber extends React.Component {
       position: 'relative',
       top: 60,
   },
+  buttonText: {
+     fontSize: 18,
+     width:200,
+     //textTransform: 'uppercase',
+     color: 'grey',
+     textAlign:'left',
+ },
+ destinos: {
+     display: 'flex',
+     height: 120,
+     justifyContent: 'center',
+     alignItems: 'center',
+
+     borderBottomWidth: 0.5,
+     borderBottomColor:'grey',
+     borderTopWidth: 0.5,
+     borderTopColor:'grey',
+     backgroundColor: '#f2f2f2',
+     shadowColor: '#2AC062',
+     shadowOpacity: 0.4,
+     shadowOffset: { height: 10, width: 0 },
+     shadowRadius: 20,
+ },
 
 
   });
