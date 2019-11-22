@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
 
-export default class Stops extends React.Component {
+export default class StopsList extends React.Component {
   static navigationOptions={
-    title: "StopsList",
+    title: "DestStop",
   };
     /*this.state = {
       todoInput: '',
@@ -35,14 +35,7 @@ export default class Stops extends React.Component {
                    <Text style = {styles.backText}>FRENTE</Text>
                  </View>
             </TouchableOpacity>
-            <Text style = {styles.Text}>Paragem selecionada</Text>
-            <Text style = {styles.Text}>HARDCODE</Text>
-            <Text style = {styles.Text}>ver horarios para {params.busNumberStp}</Text>
-            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.destino}>
-                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                      <Text style = {styles.destText}>Escolher Paragem de Destino</Text>
-                </View>
-            </TouchableOpacity>
+            <Text style = {styles.Text}>sduhfouhfephef</Text>
           </View>
       );
     }
@@ -119,14 +112,37 @@ export default class Stops extends React.Component {
      color: '#ffffff',
      textAlign:'center',
  },
- destino: {
+ direcao1: {
      display: 'flex',
      margin:30,
      height: 70,
-     width:210,
+     width:190,
      justifyContent: 'center',
      alignItems: 'center',
-     top:200,
+     top:27,
+
+     borderRadius:20,
+     borderBottomWidth: 0.5,
+     borderBottomColor:'grey',
+     borderTopWidth: 0.5,
+     borderTopColor:'grey',
+     borderLeftWidth: 0.5,
+     borderLeftColor:'grey',
+     borderRightWidth: 0.5,
+     borderRightColor:'grey',
+     backgroundColor: '#0066cc',
+     shadowColor: '#2AC062',
+     shadowOpacity: 0.4,
+     shadowOffset: { height: 10, width: 0 },
+     shadowRadius: 20,
+ },
+ direcao2: {
+     display: 'flex',
+     height: 70,
+     width:190,
+     margin:30,
+     justifyContent: 'center',
+     alignItems: 'center',
 
      borderRadius:20,
      borderBottomWidth: 0.5,

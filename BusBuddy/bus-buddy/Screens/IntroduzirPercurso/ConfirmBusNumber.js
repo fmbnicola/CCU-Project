@@ -5,6 +5,15 @@ export default class ConfirmBusNumber extends React.Component {
   static navigationOptions={
     title: "ConfirmBus",
   };
+  constructor(props) {
+      super(props);
+      var {params} = this.props.navigation.state;
+      this.state = {
+          numBus:params.busNumber
+      };
+  }
+
+
     /*this.state = {
       todoInput: '',
       todos: [
@@ -16,7 +25,7 @@ export default class ConfirmBusNumber extends React.Component {
 //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
       const {navigate} = this.props.navigation;
-      var {params} = this.props.navigation.state;
+      //var {params} = this.props.navigation.state;
       return(
         //<View style={styles.botoes}>
           /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
@@ -31,7 +40,7 @@ export default class ConfirmBusNumber extends React.Component {
                  </View>
             </TouchableOpacity>
             <Text style = {styles.Text}>Escolheu este autocarro </Text>
-            <Text style = {styles.Text}>{params.busNumber}</Text>
+            <Text style = {styles.Text}>{this.state.numBus}</Text>
             <TouchableOpacity
               onPress = {() => {navigate('InputBus', {})}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
@@ -42,7 +51,7 @@ export default class ConfirmBusNumber extends React.Component {
                  </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress = {() => {{navigate('BusDir', {busNumberConf:params.busNumber})}}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {{navigate('BusDir', {busNumber:this.state.numBus})}}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar numero selecionado"
               >

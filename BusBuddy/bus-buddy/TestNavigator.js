@@ -24,7 +24,7 @@ import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
 import PlanearRot from "./Screens/PlanearRota/PlanearRot"
 import ConfirmBus from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
 import BusDirection from "./Screens/IntroduzirPercurso/BusDirection"
-import StopsList from "./Screens/IntroduzirPercurso/Stops"
+import StopsList from "./Screens/IntroduzirPercurso/StopsList"
 import DestinationStop from "./Screens/IntroduzirPercurso/DestinationStop"
 
 

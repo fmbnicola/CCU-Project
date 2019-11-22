@@ -10,22 +10,24 @@ export default class BusDirection extends React.Component {
 
     constructor(props) {
         super(props);
-
+        var {params} = this.props.navigation.state;
         this.state = {
             loading: true,
-            directions: null
+            directions: null,
+            numBus:params.busNumber
         };
     }
 
 
     componentDidMount(){
-        getRouteDirections(this, '727')
+        //var {params} = this.props.navigation.state;
+        getRouteDirections(this, this.state.numBus);
     }
 
 
   render() {
-    //const {navigate} = this.props.navigation;
-    var {params} = this.props.navigation.state;
+    const {navigate} = this.props.navigation;
+
 
     if(this.state.loading){
         return(
@@ -42,7 +44,7 @@ export default class BusDirection extends React.Component {
                   <Text style = {styles.backText}>BACK</Text>
                 </View>
           </TouchableOpacity>
-          <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text>{params.busNumberConf}</Text>
+          <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.Text}>{this.state.numBus}</Text>
 
           <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao1}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
@@ -55,18 +57,8 @@ export default class BusDirection extends React.Component {
               </View>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress = {() => {{navigate('BusDir', {})}}}  //falta por paramentos para passarem para o proximo ecra
-            style = {styles.button}
-            accessibilityHint = "Confirmar numero do autocarro"
-            >
-                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                <Image style={styles.image} source={require('./check-mark.png')} />
-                </View>
-            </TouchableOpacity>
-
             <TouchableOpacity
-              onPress = {() => {{navigate('StopsList', {busNumberStp: params.busNumberConf })}}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {navigate('StopsList', {})}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar direcao selecionada"
               >
