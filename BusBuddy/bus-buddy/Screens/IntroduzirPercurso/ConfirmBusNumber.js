@@ -1,16 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
-export default class Percurso_inputBus extends React.Component {
+export default class ConfirmBusNumber extends React.Component {
   static navigationOptions={
-    title: "InputBus",
+    title: "ConfirmBus",
   };
-  constructor(props){
-    super(props);
-    this.state = { text: '' };
-  }
-
-
     /*this.state = {
       todoInput: '',
       todos: [
@@ -21,8 +15,7 @@ export default class Percurso_inputBus extends React.Component {
 
 //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
-      const {navigate} = this.props.navigation;
-      console.log(this.state);
+      var {params} = this.props.navigation.state;
       return(
         //<View style={styles.botoes}>
           /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
@@ -36,21 +29,10 @@ export default class Percurso_inputBus extends React.Component {
                    <Text style = {styles.backText}>BACK</Text>
                  </View>
             </TouchableOpacity>
-            <Text style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
-            <TextInput style = {styles.keyBoard}
-              placeholder="Número do autocarro"
-              placeholderTextColor= "#e6e6e6"
-              underlineColorAndroid='transparent'
-              returnKeyType = 'done'
-              accessibilityRole = "keyboardkey"
-              accessibilityLiveRegion="assertive"
-              accessibilityHint = "Para selecionar o número da carreira que pretende apanhar"
-              accessibilityLabel = "Abrir teclado"
-              keyboardType={'number-pad'}
-              onChangeText={(text) => this.setState({text})}
-              value={this.state.text}/>
+            <Text style = {styles.Text}>CONFIRM</Text>
+
             <TouchableOpacity
-              onPress = {() => {navigate('ConfirmBus', {numeroAutocarro: this.state.text})}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {console.log("helo");console.log(params);}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar autocarro"
               >
