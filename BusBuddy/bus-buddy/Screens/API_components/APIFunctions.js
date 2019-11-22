@@ -182,37 +182,42 @@ export const getStopRoutes = async(element) => {
 
 
 //get directions (initial and final stop) for a route 
-export const getRouteDirections = async(route_no) => {
+export const getRouteDirections = async(element, route_no) => {
 
     //request an await answer
-    const response = await fetch(api_root + "/api/v2.5/Routes/" + route_no);
-    const responseJson = await response.json().catch(error=>console.log(error)); //to catch the errors if any
+    fetch(api_root + "/api/v2.5/Routes/" + route_no, {method: 'GET'})
+    .then(response => response.json())
+    .then((responseJson)=> {
 
-    //filter responseJson so that only bus stops are displayed
-    //routes can be circular.. or linear with up or down direction
-    var is_circ = responseJson.isCirc;
-    if(is_circ){
-        var itinerary = responseJson.variants[0].circItinerary.connections;
-    }
-    else{
-        var itinerary = responseJson.variants[0].upItinerary.connections;
-    }
+        //filter responseJson so that only bus stops are displayed
+        //routes can be circular.. or linear with up or down direction
+        var is_circ = responseJson.isCirc;
+        if(is_circ){
+            var itinerary = responseJson.variants[0].circItinerary.connections;
+        }
+        else{
+            var itinerary = responseJson.variants[0].upItinerary.connections;
+        }
 
-    //get stops
-    var stops = [] 
-    for(stop of itinerary){
-        stops.push(stop.busStop)
-    }
+        //get stops
+        var stops = [] 
+        for(stop of itinerary){
+            stops.push(stop.busStop)
+        }
 
-    //extract important stops
-    var initial_stop, final_stop;
-    if(!is_circ){
-        initial_stop = stops[0];
-    }
-    final_stop   = stops[stops.length-1]
+        //extract important stops
+        var initial_stop, final_stop;
+        if(!is_circ){
+            initial_stop = stops[0];
+        }
+        final_stop   = stops[stops.length-1]
 
-    console.log({initial_stop: initial_stop, final_stop: final_stop});
-    return {initial_stop: initial_stop, final_stop: final_stop};
+        element.setState({
+            loading: false,
+            directions: {initial_stop: initial_stop, final_stop: final_stop}
+        })
+    })
+    .catch(error=>console.log(error))
 }
 
 
@@ -238,6 +243,8 @@ const getTimeLeft = (UNIX_timestamp) => {
     //we add 2 mins just to be on the safe side :)
     return Math.max(2, minutes + 2);
   }
+
+
 
 export const getBusStopEstimation = async(element) => {
 

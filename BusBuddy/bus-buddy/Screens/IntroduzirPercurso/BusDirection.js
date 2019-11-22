@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput, ActivityIndicator} from 'react-native';
 
 import {getRouteDirections} from '../API_components/APIFunctions'
 
@@ -7,46 +7,61 @@ export default class BusDirection extends React.Component {
   static navigationOptions={
     title: "ConfirmBus",
   };
-    /*this.state = {
-      todoInput: '',
-      todos: [
-        { id: 0, title: 'Take out the trash', done: false},
-        { id: 1, title: 'Cook dinner', done: false}
-      ]
-    }  }*/
 
-    render() {
-      const {navigate} = this.props.navigation;
-      var {params} = this.props.navigation.state;
-      var something = getRouteDirections('717');
-      /*getRouteDirections('717').then((data) => {
-      this.setState({
-        dataSource:this.state.dataSource.cloneWithRows(data),
-      })
-    });
-*/
-      console.log("something");
-      console.log(something);
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: true,
+            directions: null
+        };
+    }
 
 
-      return(
-          <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
-            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
-                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                   <Image style = {styles.backImage} source={require('./back.png')} />
-                   <Text style = {styles.backText}>BACK</Text>
-                 </View>
-            </TouchableOpacity>
-            <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.Text}>{params.busNumberConf}</Text>
+    componentDidMount(){
+        getRouteDirections(this, '727')
+    }
 
-            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao1}>
-                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                      <Text style = {styles.destText}>Fetais</Text>
+
+  render() {
+    //const {navigate} = this.props.navigation;
+    var {params} = this.props.navigation.state;
+
+    if(this.state.loading){
+        return(
+            <View style={styles.loader}>
+                <ActivityIndicator size="large" color="#0c9"/>
+            </View>
+        )
+    }
+    return(
+        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
+          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
+                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                  <Image style = {styles.backImage} source={require('./back.png')} />
+                  <Text style = {styles.backText}>BACK</Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao2}>
-                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                      <Text style = {styles.destText}>Sapadores</Text>
+          </TouchableOpacity>
+          <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text>{params.busNumberConf}</Text>
+
+          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao1}>
+              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+                    <Text style = {styles.destText}> {this.state.directions.initial_stop.name} </Text>
+              </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao2}>
+              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+                    <Text style = {styles.destText}> {this.state.directions.final_stop.name} </Text>
+              </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress = {() => {{navigate('BusDir', {})}}}  //falta por paramentos para passarem para o proximo ecra
+            style = {styles.button}
+            accessibilityHint = "Confirmar numero do autocarro"
+            >
+                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                <Image style={styles.image} source={require('./check-mark.png')} />
                 </View>
             </TouchableOpacity>
 
@@ -61,11 +76,11 @@ export default class BusDirection extends React.Component {
               </TouchableOpacity>
 
 
-          </View>
-        //</View>
-      );
-    }
+        </View>
+      //</View>
+    );
   }
+}
 
   const styles = StyleSheet.create({
    button: {
@@ -119,8 +134,6 @@ export default class BusDirection extends React.Component {
       textAlign:'center',
       position: 'relative',
       right: 3,
-
-
   },
    keyBoard: {
       fontSize: 20,
@@ -185,6 +198,12 @@ export default class BusDirection extends React.Component {
      shadowOffset: { height: 10, width: 0 },
      shadowRadius: 20,
  },
+ loader:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
+  }
 
 
   });
