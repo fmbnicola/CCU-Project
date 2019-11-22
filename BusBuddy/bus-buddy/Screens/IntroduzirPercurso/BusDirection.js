@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
+import {getRouteDirections} from '../API_components/APIFunctions'
+
 export default class BusDirection extends React.Component {
   static navigationOptions={
     title: "ConfirmBus",
@@ -13,17 +15,22 @@ export default class BusDirection extends React.Component {
       ]
     }  }*/
 
-//ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
       const {navigate} = this.props.navigation;
       var {params} = this.props.navigation.state;
+      var something = getRouteDirections('717');
+      /*getRouteDirections('717').then((data) => {
+      this.setState({
+        dataSource:this.state.dataSource.cloneWithRows(data),
+      })
+    });
+*/
+      console.log("something");
+      console.log(something);
+
+
       return(
-        //<View style={styles.botoes}>
-          /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
-          <Button title="Introduzir Percurso" onPress={() => Alert.alert('2')}/>
-          <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
-          <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
-          <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
+          <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
             <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                  <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                    <Image style = {styles.backImage} source={require('./back.png')} />
@@ -32,9 +39,14 @@ export default class BusDirection extends React.Component {
             </TouchableOpacity>
             <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text>{params.busNumberConf}</Text>
 
-            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.destinos}>
+            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao1}>
                 <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                      <Text style = {styles.buttonText}>Fetais</Text>
+                      <Text style = {styles.destText}>Fetais</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao2}>
+                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+                      <Text style = {styles.destText}>Sapadores</Text>
                 </View>
             </TouchableOpacity>
 
@@ -47,6 +59,8 @@ export default class BusDirection extends React.Component {
                   <Image style={styles.image} source={require('./check-mark.png')} />
                  </View>
               </TouchableOpacity>
+
+
           </View>
         //</View>
       );
@@ -58,16 +72,17 @@ export default class BusDirection extends React.Component {
         display: 'flex',
         height: 50,
         width: 50,
+        margin: 20,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'relative',
-        top:200,
-        left: 160,
+
 
       },
     backButton: {
          display: 'flex',
+         alignSelf: 'flex-start',
          height: 20,
          justifyContent: 'center',
          alignItems: 'center',
@@ -116,24 +131,55 @@ export default class BusDirection extends React.Component {
       position: 'relative',
       top: 60,
   },
-  buttonText: {
-     fontSize: 18,
-     width:200,
+  destText: {
+     fontSize: 20,
+     width:190,
      //textTransform: 'uppercase',
-     color: 'grey',
-     textAlign:'left',
+     color: '#ffffff',
+     textAlign:'center',
  },
- destinos: {
+ direcao1: {
      display: 'flex',
-     height: 120,
+     margin:30,
+     height: 70,
+     width:190,
      justifyContent: 'center',
      alignItems: 'center',
+     top:27,
 
+     borderRadius:20,
      borderBottomWidth: 0.5,
      borderBottomColor:'grey',
      borderTopWidth: 0.5,
      borderTopColor:'grey',
-     backgroundColor: '#f2f2f2',
+     borderLeftWidth: 0.5,
+     borderLeftColor:'grey',
+     borderRightWidth: 0.5,
+     borderRightColor:'grey',
+     backgroundColor: '#0066cc',
+     shadowColor: '#2AC062',
+     shadowOpacity: 0.4,
+     shadowOffset: { height: 10, width: 0 },
+     shadowRadius: 20,
+ },
+ direcao2: {
+     display: 'flex',
+     height: 70,
+     width:190,
+     margin:30,
+     justifyContent: 'center',
+     alignItems: 'center',
+
+     borderRadius:20,
+     borderBottomWidth: 0.5,
+     borderBottomColor:'grey',
+     borderTopWidth: 0.5,
+     borderTopColor:'grey',
+     borderLeftWidth: 0.5,
+     borderLeftColor:'grey',
+     borderRightWidth: 0.5,
+     borderRightColor:'grey',
+     backgroundColor: '#0066cc',
      shadowColor: '#2AC062',
      shadowOpacity: 0.4,
      shadowOffset: { height: 10, width: 0 },
