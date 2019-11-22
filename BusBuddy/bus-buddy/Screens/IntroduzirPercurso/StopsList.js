@@ -35,7 +35,7 @@ export default class StopsList extends React.Component {
                    <Text style = {styles.backText}>FRENTE</Text>
                  </View>
             </TouchableOpacity>
-            <Text style = {styles.Text}>sduhfouhfephef</Text>
+            <Text style = {styles.Text}>Escolha uma destas paragens</Text>
           </View>
       );
     }
