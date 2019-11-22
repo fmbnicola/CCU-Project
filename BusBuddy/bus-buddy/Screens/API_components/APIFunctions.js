@@ -195,19 +195,37 @@ const getTimeLeft = (UNIX_timestamp) => {
     var currentTime = new Date();
     var currentTime = currentTime.getTime();
     var difference  =  Math.abs(estimationTime - currentTime); 
-    const diffMins  = Math.ceil(difference / (1000 * 60 * 24)); //FIXME: this isn't working
+    var minutes = parseInt((difference/(1000*60))%60);
 
-    console.log('1 -> ' + estimationTime);
-    console.log('2 -> ' + currentTime);
-    console.log('3 -> ' + difference);
-
-    return diffMins;
+    //we add 2 mins just to be on the safe side :)
+    return Math.max(2, minutes + 2);
   }
 
 export const getBusStopEstimation = async(element) => {
 
+    //First request to see if service is active
+    fetch(api_root + "/api/v2.5/Estimations", {method: 'GET'})
+    .then( function(response) {
+
+        //uncomment bottom line to simulate service being down
+        //response.ok = false;
+
+        if(response.ok != true || response.status != '200'){
+            
+            element.setState({
+                loading: false,
+                serviceDown: true
+            })
+            
+            throw new Error('Estimation Service is down.');
+        }
+        console.log(response);
+        
+    })
+    .catch(error=>console.log(error)) //to catch the errors if any
+
+    //Second request to get the buses
     var bus_stop_id = element.props.bus_stop_id;
-    
     var num_results = element.props.num_results;
     num_results = (num_results == null)? '3' : num_results;
 
@@ -216,7 +234,7 @@ export const getBusStopEstimation = async(element) => {
     .then((responseJson)=> {
 
         for(bus of responseJson){
-            bus.timeLeft = getTimeLeft(bus.time); //FIXME -> haven't tested this 
+            bus.timeLeft = getTimeLeft(bus.time);
         }
             
         element.setState({

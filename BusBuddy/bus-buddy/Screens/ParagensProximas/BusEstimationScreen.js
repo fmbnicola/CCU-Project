@@ -34,7 +34,7 @@ export default class BusEstimationScreen extends React.Component {
   render() {
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <BusList bus_stop_id='3913' num_results='5' updateSelected = {this.updateSelected}/>
+        <BusList bus_stop_id='3913' num_results='10' updateSelected = {this.updateSelected}/>
       </View>
     );
   }

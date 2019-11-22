@@ -16,6 +16,7 @@ export default class BusList extends React.Component {
     super(props);
     this.state = {
         loading: true,
+        serviceDown: false,
         dataSource:[]
     };
   }
@@ -40,6 +41,13 @@ export default class BusList extends React.Component {
 
   //render RouteList
   render(){
+    if(this.state.serviceDown){
+      return( 
+        <View style={styles.loader}> 
+          <Text>Estimation Service is down.</Text>
+          <Text>Sorry for the inconvenience.</Text>
+        </View>
+    )}
     if(this.state.loading){
       return( 
         <View style={styles.loader}> 
@@ -58,7 +66,7 @@ export default class BusList extends React.Component {
             <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
               <Text>{item.routeNumber} - {item.routeName}</Text>
               <Text>Sentido: {item.destination}</Text>
-              <Text>{item.timeLeft}</Text>
+              <Text>{item.timeLeft} mins</Text>
             </TouchableOpacity>
           )}
 
