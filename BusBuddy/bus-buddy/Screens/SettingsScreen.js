@@ -1,11 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { 
+  View,
+  Text} from 'react-native';
 
-export default class SettingsScreen extends React.Component {
+
+export default class SettingScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff'}}>
-        <Text> This is my Notifications screen </Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text> This is the Settings screen </Text>
       </View>
     );
   }
