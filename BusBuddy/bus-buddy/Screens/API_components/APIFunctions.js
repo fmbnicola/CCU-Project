@@ -189,21 +189,19 @@ export const getStopRoutes = async(element) => {
 
 //this function is used to convert string time stamp to js Date object
 const getTimeLeft = (UNIX_timestamp) => {
-    var estimationTime = new Date(UNIX_timestamp * 1000);
+    
+    var estimationTime = Date.parse(UNIX_timestamp);
+
     var currentTime = new Date();
+    var currentTime = currentTime.getTime();
+    var difference  =  Math.abs(estimationTime - currentTime); 
+    const diffMins  = Math.ceil(difference / (1000 * 60 * 24)); //FIXME: this isn't working
 
-    var difference =  estimationTime - currentTime;
+    console.log('1 -> ' + estimationTime);
+    console.log('2 -> ' + currentTime);
+    console.log('3 -> ' + difference);
 
-    /*var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-    var hour = a.getHours();
-    var min = a.getMinutes();
-    var sec = a.getSeconds();
-    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;*/
-
-    return difference.getMinutes;
+    return diffMins;
   }
 
 export const getBusStopEstimation = async(element) => {
@@ -220,7 +218,7 @@ export const getBusStopEstimation = async(element) => {
         for(bus of responseJson){
             bus.timeLeft = getTimeLeft(bus.time); //FIXME -> haven't tested this 
         }
-        
+            
         element.setState({
             loading: false,
             dataSource: responseJson
