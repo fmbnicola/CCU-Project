@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
                  <Image style={styles.image} source={require('./bus-stop.png')} />
-                     <Text style = {styles.buttonText}>Paragens Próximas</Text>
+                     <Text style = {styles.buttonText}>Paragens Perto de Si</Text>
                </View>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.button}>
