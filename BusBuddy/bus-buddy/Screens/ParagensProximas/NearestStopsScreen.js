@@ -1,7 +1,6 @@
-/* NOTE: currently this file isn't connected to any other screen, it serves for demonstrative purposes */
 
 import React from 'react';
-import { 
+import {
   View,
   Text} from 'react-native';
 
@@ -23,21 +22,25 @@ export default class NearestStopsScreen extends React.Component {
     this.setState({
       selected: chosen_stop
     });
+    const {navigate} = this.props.navigation;
+    navigate('BusesOnStop', {stopName: chosen_stop.name, id:chosen_stop.publicId });
+
+
 
     //FIXME: this is where we can navigate to next screen (carrying over the info saved in the state)
     //hint: chosen_stop is an object. you can do things like chosen_stop.id, chosen_stop.name etc
+    console.log("neares");
     console.log(chosen_stop);
   }
 
 
   //FIXME: here the coords are hard-coded... for now :P
   render() {
+    console.log("this.updateSelected");
+    console.log(this.updateSelected);
     return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        {/*<BusStopList target = 'nearest' updateSelected = {this.updateSelected}/>/*}
-        {/*<BusStopList target = 'all' updateSelected = {this.updateSelected}/>*/}
-        {/*<BusStopList target = 'route' route_no = '727' updateSelected = {this.updateSelected}/>*/}
-        <BusStopList target = 'route' route_no = '727' initial_stop='3910' final_stop='1802' updateSelected = {this.updateSelected}/>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
+        <BusStopList  target = 'nearest' updateSelected = {this.updateSelected}/>
       </View>
     );
   }

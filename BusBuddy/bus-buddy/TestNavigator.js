@@ -16,10 +16,10 @@ import Localizacao from "./Screens/MinhaLocalizacao/Localizacao"
 //    BusStopList - get list of all busStops, nearest bus stops or busStops in a route
 // to test, comment the first line and uncomment one of the others to easily navigate there
 
-import ParagensProx from "./Screens/ParagensProximas/ParagensProx"
-//import ParagensProx from "./Screens/ParagensProximas/BusEstimationScreen"
+//import BusesOnStop from "./Screens/ParagensProximas/BusesOnStop"
+import BusesOnStop from "./Screens/ParagensProximas/BusEstimationScreen"
 //import ParagensProx from "./Screens/ParagensProximas/RoutesForSpecificStopScreen"
-//import ParagensProx from "./Screens/ParagensProximas/NearestStopsScreen"
+import ParagensProx from "./Screens/ParagensProximas/NearestStopsScreen"
 
 import PlanearRot from "./Screens/PlanearRota/PlanearRot"
 import ConfirmBus from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
@@ -40,7 +40,8 @@ const TestNavigator = createStackNavigator({
   StopsList: {screen: StopsList},
   DestStop: {screen: DestinationStop},
   DestsList: {screen: DestsList},
-  ReadyToGo: {screen: ReadyToGo}
+  ReadyToGo: {screen: ReadyToGo},
+  BusesOnStop: {screen: BusesOnStop}
 },
 {
     headerMode: 'none',

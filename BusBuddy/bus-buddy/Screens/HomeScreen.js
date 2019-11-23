@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image } from '
 import {createStackNavigator} from 'react-navigation-stack';
 import Percurso_inputBus from "./IntroduzirPercurso/Percurso_inputBus"
 import Localizacao from "./MinhaLocalizacao/Localizacao"
-import ParagensProx from "./ParagensProximas/ParagensProx"
 import PlanearRot from "./PlanearRota/PlanearRot"
 
 export default class HomeScreen extends React.Component {
