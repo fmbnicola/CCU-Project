@@ -1,52 +1,59 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
+import BusStopList from './../API_components/BusStopList';
 
-export default class DestinationStop extends React.Component {
-  
+export default class DestsList extends React.Component {
+
   static navigationOptions={
-    title: "DestStop",
+    title: "DestsList",
   };
 
   constructor(props) {
-    super(props);
-    var {params} = this.props.navigation.state;
+      super(props);
+      var {params} = this.props.navigation.state;
+      
+      this.updateSelected = this.updateSelected.bind(this);
 
-    this.state = {
-      numBus: params.numBus,
-      ini_stop: params.ini_stop,
-      fin_stop: params.fin_stop,
-    };
+      this.state = {
+          numBus:   params.numBus,
+          ini_stop: params.ini_stop,
+          fin_stop: params.fin_stop,
+          selected: null
+      };
   }
-   
+
+
+  updateSelected(chosen_stop){
+    this.setState({
+      selected: chosen_stop
+    });
+
+    const {navigate} = this.props.navigation;
+    navigate('ReadyToGo', {numBus: this.state.numBus,
+                           ini_stop: this.state.ini_stop,
+                           fin_stop: chosen_stop});
+  }
+
+
   render() {
     const {navigate} = this.props.navigation;
 
     return(
-        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
 
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {})}} style = {styles.backButton}>
-                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style = {styles.backImage} source={require('./back.png')} />
-                  <Text style = {styles.backText}>BACK</Text>
-                </View>
-          </TouchableOpacity>
+        <TouchableOpacity onPress = {() => {navigate('DestStop', {})}} style = {styles.backButton}>
+          <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+            <Image style = {styles.backImage} source={require('./back.png')} />
+            <Text style = {styles.backText}>BACK</Text>
+          </View>
+        </TouchableOpacity>
 
-          <Text style = {styles.Text}>Paragem selecionada:</Text>
-          <Text style = {styles.SmallText}>{this.state.ini_stop.name}</Text>
-          
-          <TouchableOpacity 
-            style={styles.destino}
-            onPress = {() => {    navigate('DestsList', {numBus:   this.state.numBus,
-                                                         ini_stop: this.state.ini_stop,
-                                                         fin_stop: this.state.fin_stop});}} 
-          >
-              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                    <Text style = {styles.destText}>Escolher Paragem de Destino</Text>
-              </View>
-          </TouchableOpacity>
-
+        <View style={{width: '100%', height: '100%'}}>
+          <BusStopList target = 'route' route_no = {this.state.numBus} initial_stop={this.state.ini_stop.id} final_stop={this.state.fin_stop} include={[0,1]} updateSelected = {this.updateSelected} style = {styles.stopList}/>
         </View>
+
+      </View>
     );
   }
 }
@@ -61,9 +68,7 @@ export default class DestinationStop extends React.Component {
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'relative',
-
-
-      },
+    },
     backButton: {
          display: 'flex',
          alignSelf: 'flex-start',
@@ -95,16 +100,7 @@ export default class DestinationStop extends React.Component {
        position: 'relative',
        top: 45,
    },
-   SmallText: {
-    fontSize: 16,
-    width:300,
-    //textTransform: 'uppercase',
-    color: 'black',
-    textAlign:'center',
-    position: 'relative',
-    top: 45,
-  },
-   backText: {
+  backText: {
       fontSize: 16,
       width:100,
       //textTransform: 'uppercase',
@@ -112,8 +108,6 @@ export default class DestinationStop extends React.Component {
       textAlign:'center',
       position: 'relative',
       right: 3,
-
-
   },
    keyBoard: {
       fontSize: 20,
@@ -131,14 +125,14 @@ export default class DestinationStop extends React.Component {
      color: '#ffffff',
      textAlign:'center',
  },
- destino: {
+ direcao1: {
      display: 'flex',
      margin:30,
      height: 70,
-     width:210,
+     width:190,
      justifyContent: 'center',
      alignItems: 'center',
-     top:200,
+     top:27,
 
      borderRadius:20,
      borderBottomWidth: 0.5,
@@ -156,5 +150,4 @@ export default class DestinationStop extends React.Component {
      shadowRadius: 20,
  },
 
-
-  });
+});

@@ -81,8 +81,6 @@ export const getRouteBusStops = async (element) => {
             var ini_s = stops.findIndex(stop => stop.id == ini_id);
             var fin_s = stops.findIndex(stop => stop.id == fin_id);
 
-            console.log('include -> ' + include);
-
             if(ini_s > fin_s){
                 stops = stops.slice(fin_s, ini_s + 1);
                 stops.reverse();
@@ -302,7 +300,7 @@ export const getBusStopEstimation = async(element) => {
             
             throw new Error('Estimation Service is down.');
         }
-        console.log(response);
+        //console.log(response);
         
     })
     .catch(error=>console.log(error)) //to catch the errors if any

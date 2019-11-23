@@ -4,8 +4,11 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 import BusStopList from './../API_components/BusStopList';
 
 export default class StopsList extends React.Component {
-  
-  
+
+  static navigationOptions={
+    title: "StopsList",
+  };
+
   constructor(props) {
       super(props);
       var {params} = this.props.navigation.state;
@@ -28,7 +31,7 @@ export default class StopsList extends React.Component {
 
     const {navigate} = this.props.navigation;
     navigate('DestStop', {numBus: this.state.numBus,
-                          ini_stop: this.state.chosen_stop,
+                          ini_stop: chosen_stop,
                           fin_stop: this.state.fin_stop});
   }
 

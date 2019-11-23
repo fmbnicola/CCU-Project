@@ -26,7 +26,8 @@ import ConfirmBus from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
 import BusDirection from "./Screens/IntroduzirPercurso/BusDirection"
 import StopsList from "./Screens/IntroduzirPercurso/StopsList"
 import DestinationStop from "./Screens/IntroduzirPercurso/DestinationStop"
-
+import DestsList from "./Screens/IntroduzirPercurso/DestsList"
+import ReadyToGo from "./Screens/IntroduzirPercurso/ReadyToGo"
 
 const TestNavigator = createStackNavigator({
   Home: {screen: HomeScreen},
@@ -38,6 +39,8 @@ const TestNavigator = createStackNavigator({
   BusDir: {screen: BusDirection},
   StopsList: {screen: StopsList},
   DestStop: {screen: DestinationStop},
+  DestsList: {screen: DestsList},
+  ReadyToGo: {screen: ReadyToGo}
 },
 {
     headerMode: 'none',

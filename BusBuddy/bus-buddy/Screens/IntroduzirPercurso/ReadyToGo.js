@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
 
-export default class DestinationStop extends React.Component {
+export default class ReadyToGo extends React.Component {
   
   static navigationOptions={
-    title: "DestStop",
+    title: "ReadyToGo",
   };
 
   constructor(props) {
@@ -35,17 +35,17 @@ export default class DestinationStop extends React.Component {
           <Text style = {styles.Text}>Paragem selecionada:</Text>
           <Text style = {styles.SmallText}>{this.state.ini_stop.name}</Text>
           
-          <TouchableOpacity 
-            style={styles.destino}
-            onPress = {() => {    navigate('DestsList', {numBus:   this.state.numBus,
-                                                         ini_stop: this.state.ini_stop,
-                                                         fin_stop: this.state.fin_stop});}} 
-          >
+          <Text> {"\n\n\n\n\n\n"} </Text>
+
+          <Text style = {styles.Text}>Destino selecionado:</Text>
+          <Text style = {styles.SmallText}>{this.state.fin_stop.name}</Text>
+          
+          <TouchableOpacity style={styles.letsgo} onPress = {() => {}}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                    <Text style = {styles.destText}>Escolher Paragem de Destino</Text>
+                    <Text style = {styles.destText}>Começar Viagem</Text>
               </View>
           </TouchableOpacity>
-
+          
         </View>
     );
   }
@@ -61,8 +61,6 @@ export default class DestinationStop extends React.Component {
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'relative',
-
-
       },
     backButton: {
          display: 'flex',
@@ -95,66 +93,64 @@ export default class DestinationStop extends React.Component {
        position: 'relative',
        top: 45,
    },
-   SmallText: {
-    fontSize: 16,
-    width:300,
-    //textTransform: 'uppercase',
-    color: 'black',
-    textAlign:'center',
-    position: 'relative',
-    top: 45,
-  },
-   backText: {
+    SmallText: {
       fontSize: 16,
-      width:100,
+      width:300,
       //textTransform: 'uppercase',
-      color: 'grey',
+      color: 'black',
       textAlign:'center',
       position: 'relative',
-      right: 3,
-
-
-  },
-   keyBoard: {
+      top: 45,
+    },
+    backText: {
+        fontSize: 16,
+        width:100,
+        //textTransform: 'uppercase',
+        color: 'grey',
+        textAlign:'center',
+        position: 'relative',
+        right: 3,
+    },
+    keyBoard: {
+        fontSize: 20,
+        width:350,
+        //textTransform: 'uppercase',
+        color: 'grey',
+        textAlign:'center',
+        position: 'relative',
+        top: 60,
+    },
+    destText: {
       fontSize: 20,
-      width:350,
+      width:190,
       //textTransform: 'uppercase',
-      color: 'grey',
+      color: '#ffffff',
       textAlign:'center',
-      position: 'relative',
-      top: 60,
+    },
+    letsgo: {
+      display: 'flex',
+      margin:30,
+      height: 70,
+      width:210,
+      justifyContent: 'center',
+      alignItems: 'center',
+      top:80,
+
+      borderRadius:20,
+      borderBottomWidth: 0.5,
+      borderBottomColor:'grey',
+      borderTopWidth: 0.5,
+      borderTopColor:'grey',
+      borderLeftWidth: 0.5,
+      borderLeftColor:'grey',
+      borderRightWidth: 0.5,
+      borderRightColor:'grey',
+      backgroundColor: '#0066cc',
+      shadowColor: '#2AC062',
+      shadowOpacity: 0.4,
+      shadowOffset: { height: 10, width: 0 },
+      shadowRadius: 20,
   },
-  destText: {
-     fontSize: 20,
-     width:190,
-     //textTransform: 'uppercase',
-     color: '#ffffff',
-     textAlign:'center',
- },
- destino: {
-     display: 'flex',
-     margin:30,
-     height: 70,
-     width:210,
-     justifyContent: 'center',
-     alignItems: 'center',
-     top:200,
-
-     borderRadius:20,
-     borderBottomWidth: 0.5,
-     borderBottomColor:'grey',
-     borderTopWidth: 0.5,
-     borderTopColor:'grey',
-     borderLeftWidth: 0.5,
-     borderLeftColor:'grey',
-     borderRightWidth: 0.5,
-     borderRightColor:'grey',
-     backgroundColor: '#0066cc',
-     shadowColor: '#2AC062',
-     shadowOpacity: 0.4,
-     shadowOffset: { height: 10, width: 0 },
-     shadowRadius: 20,
- },
 
 
-  });
+});
