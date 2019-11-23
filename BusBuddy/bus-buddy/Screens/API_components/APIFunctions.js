@@ -221,6 +221,36 @@ export const getRouteDirections = async(element, route_no) => {
 }
 
 
+//check if there is a route with the given number
+export const doesRouteExist = async(element) => {
+
+    fetch(api_root + "/api/v2.5/Routes", {method: 'GET'})
+    .then(response => response.json())
+    .then((responseJson)=> {
+
+        //filter to not show routes that aren't currently active
+        responseJson = responseJson.filter(route => route.isPublicVisible == true);
+
+        //look for specific route
+        var found = responseJson.find(route => route.routeNumber == element.state.numBus);
+
+        console.log(found);
+
+        if(found == null){
+            element.setState({
+                loading: false,
+                failure: true,
+            })
+        }
+        else{
+            element.setState({
+                loading: false,
+                nameBus: found.name
+            })
+        }
+    })
+    .catch(error=>console.log(error)) //to catch the errors if any
+}
 
 
 
@@ -289,3 +319,6 @@ export const getBusStopEstimation = async(element) => {
     })
     .catch(error=>console.log(error)) //to catch the errors if any
 }
+
+
+

@@ -6,24 +6,17 @@ export default class DestinationStop extends React.Component {
   static navigationOptions={
     title: "StopsList",
   };
-    /*this.state = {
-      todoInput: '',
-      todos: [
-        { id: 0, title: 'Take out the trash', done: false},
-        { id: 1, title: 'Cook dinner', done: false}
-      ]
-    }  }*/
-
+   
     render() {
       const {navigate} = this.props.navigation;
       var {params} = this.props.navigation.state;
       console.log(params.busNumberStp);
-      /*getRouteDirections('717').then((data) => {
-      this.setState({
-        dataSource:this.state.dataSource.cloneWithRows(data),
-      })
-    });
-*/
+        /*getRouteDirections('717').then((data) => {
+        this.setState({
+          dataSource:this.state.dataSource.cloneWithRows(data),
+        })
+      });
+      */
 
 
 

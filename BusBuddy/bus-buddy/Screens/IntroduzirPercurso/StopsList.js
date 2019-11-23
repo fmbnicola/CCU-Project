@@ -27,8 +27,6 @@ export default class StopsList extends React.Component {
 
 
 
-
-
       return(
           <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
             <TouchableOpacity onPress = {() => {navigate('DestStop', {})}} style = {styles.backButton}>

@@ -2,27 +2,32 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
 export default class Percurso_inputBus extends React.Component {
-  static navigationOptions={
-    title: "InputBus",
-  };
-  constructor(props){
-    super(props);
-    this.state = { text: '' };
-  }
+
+    static navigationOptions={
+        title: "InputBus",
+    };
 
 
-    /*this.state = {
-      todoInput: '',
-      todos: [
-        { id: 0, title: 'Take out the trash', done: false},
-        { id: 1, title: 'Cook dinner', done: false}
-      ]
-    }  }*/
+    constructor(props){
+        super(props);
+        this.state = { 
+            text: '' 
+        };
+    }
 
-//ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
+
+    validateNumber(){
+        //if nothing was typed don't accept
+        if(this.state.text.length != 0){
+            const {navigate} = this.props.navigation;
+            navigate('ConfirmBus', {busNumber: this.state.text});
+        }
+    }
+
+    //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
       const {navigate} = this.props.navigation;
-      console.log(this.state);
+      //console.log(this.state);
       return(
         //<View style={styles.botoes}>
           /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
@@ -50,7 +55,7 @@ export default class Percurso_inputBus extends React.Component {
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}/>
             <TouchableOpacity
-              onPress = {() => {navigate('ConfirmBus', {busNumber: this.state.text})}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {this.validateNumber()}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar autocarro"
               >
