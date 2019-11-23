@@ -51,7 +51,7 @@ export default class ConfirmBusNumber extends React.Component {
                  </View>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress = {() => {{navigate('BusDir', {busNumber:this.state.numBus})}}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {navigate('BusDir', {busNumber:this.state.numBus})}}  //falta por paramentos para passarem para o proximo ecra
               style = {styles.button}
               accessibilityHint = "Confirmar numero selecionado"
               >

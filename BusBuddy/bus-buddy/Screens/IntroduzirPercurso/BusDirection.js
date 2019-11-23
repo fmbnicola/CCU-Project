@@ -46,30 +46,18 @@ export default class BusDirection extends React.Component {
           </TouchableOpacity>
           <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.Text}>{this.state.numBus}</Text>
 
-          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao1}>
+          <TouchableOpacity onPress = {() => {navigate('StopsList', {busNumber:this.state.numBus, busDirection: this.state.directions.initial_stop.name})}} style={styles.direcao1}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.initial_stop.name} </Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.direcao2}>
+          <TouchableOpacity onPress = {() => {navigate('StopsList', {busNumber:this.state.numBus, busDirection: this.state.directions.final_stop.name})}} style={styles.direcao2}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.final_stop.name} </Text>
               </View>
           </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress = {() => {navigate('StopsList', {})}}  //falta por paramentos para passarem para o proximo ecra
-              style = {styles.button}
-              accessibilityHint = "Confirmar direcao selecionada"
-              >
-                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style={styles.image} source={require('./check-mark.png')} />
-                 </View>
-              </TouchableOpacity>
-
-
         </View>
-      //</View>
     );
   }
 }

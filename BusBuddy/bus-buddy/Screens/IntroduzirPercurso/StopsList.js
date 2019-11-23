@@ -4,26 +4,28 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 
 export default class StopsList extends React.Component {
   static navigationOptions={
-    title: "DestStop",
+    title: "StopsList",
   };
-    /*this.state = {
-      todoInput: '',
-      todos: [
-        { id: 0, title: 'Take out the trash', done: false},
-        { id: 1, title: 'Cook dinner', done: false}
-      ]
-    }  }*/
+  constructor(props) {
+      super(props);
+      var {params} = this.props.navigation.state;
+      this.state = {
+          numBus: params.busNumber,
+          dirBus: params.busDirection
+      };
+  }
+
+
 
     render() {
       const {navigate} = this.props.navigation;
-      var {params} = this.props.navigation.state;
-      console.log(params.busNumberStp);
-      /*getRouteDirections('717').then((data) => {
-      this.setState({
-        dataSource:this.state.dataSource.cloneWithRows(data),
-      })
-    });
-*/
+      console.log("estou na lista de paragens");
+      console.log("numero do autocarro");
+      console.log(this.state.numBus);   //use me like this for bus number
+      console.log("sentido do autocarro");
+      console.log(this.state.dirBus);   //use me like this for bus direction
+
+
 
 
 
