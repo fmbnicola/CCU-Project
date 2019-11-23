@@ -78,16 +78,24 @@ export const getRouteBusStops = async (element) => {
         //if ini or fin stops were given, get their index in list
         if(ini_id != null || fin_id != null){
 
-            var ini_s = (ini_id == null)? 0            : stops.findIndex(stop => stop.id == ini_id);
-            var fin_s = (fin_id == null)? stops.length : stops.findIndex(stop => stop.id == fin_id);
+            var ini_s = stops.findIndex(stop => stop.id == ini_id);
+            var fin_s = stops.findIndex(stop => stop.id == fin_id);
+
+            console.log('include -> ' + include);
 
             if(ini_s > fin_s){
-                stops = stops.slice(fin_s, ini_s);
+                stops = stops.slice(fin_s, ini_s + 1);
                 stops.reverse();
             }
             else{
-                stops = stops.slice(ini_s, fin_s);
+                stops = stops.slice(ini_s, fin_s + 1);
             }
+            
+            //include final and last stops?
+            var include = (element.props.include == null)? [1,1]: element.props.include;
+
+            stops = (include[1] == 1)? stops: stops.slice(0,stops.length-1);
+            stops = (include[0] == 1)? stops: stops.slice(1,stops.length+1);
         }
 
         //update element state
@@ -234,7 +242,7 @@ export const doesRouteExist = async(element) => {
         //look for specific route
         var found = responseJson.find(route => route.routeNumber == element.state.numBus);
 
-        console.log(found);
+        //console.log(found);
 
         if(found == null){
             element.setState({

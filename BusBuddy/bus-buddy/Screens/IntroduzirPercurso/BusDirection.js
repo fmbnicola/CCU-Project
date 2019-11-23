@@ -5,24 +5,24 @@ import {getRouteDirections} from '../API_components/APIFunctions'
 
 export default class BusDirection extends React.Component {
   static navigationOptions={
-    title: "ConfirmBus",
+    title: "BusDir",
   };
 
-    constructor(props) {
-        super(props);
-        var {params} = this.props.navigation.state;
-        this.state = {
-            loading: true,
-            directions: null,
-            numBus:params.busNumber
-        };
-    }
+  constructor(props) {
+      super(props);
+      var {params} = this.props.navigation.state;
+      this.state = {
+          loading: true,
+          directions: null,
+          numBus:params.busNumber
+      };
+  }
 
 
-    componentDidMount(){
-        //var {params} = this.props.navigation.state;
-        getRouteDirections(this, this.state.numBus);
-    }
+  componentDidMount(){
+      //var {params} = this.props.navigation.state;
+      getRouteDirections(this, this.state.numBus);
+  }
 
 
   render() {
@@ -46,12 +46,22 @@ export default class BusDirection extends React.Component {
           </TouchableOpacity>
           <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.Text}>{this.state.numBus}</Text>
 
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {busNumber:this.state.numBus, busDirection: this.state.directions.initial_stop.name})}} style={styles.direcao1}>
+          <TouchableOpacity onPress = {() => {navigate('StopsList', {
+                busNumber: this.state.numBus, 
+                fin_stop: this.state.directions.initial_stop.id,
+                ini_stop: this.state.directions.final_stop.id
+              })}} 
+              style={styles.direcao1}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.initial_stop.name} </Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {busNumber:this.state.numBus, busDirection: this.state.directions.final_stop.name})}} style={styles.direcao2}>
+          <TouchableOpacity onPress = {() => {navigate('StopsList', {
+                busNumber: this.state.numBus, 
+                fin_stop: this.state.directions.final_stop.id,
+                ini_stop: this.state.directions.initial_stop.id
+              })}} 
+              style={styles.direcao2}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.final_stop.name} </Text>
               </View>

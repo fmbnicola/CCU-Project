@@ -28,6 +28,9 @@ export default class BusStopList extends React.Component {
   //initial_stop -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the first stop in route
   //final_stop   -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the last stop in route (also dictates direction)
   //*provide either both or neither props
+  //if you provide both:
+  //include      -> (optional) must be array [a,b] where a (initial), b (final) = {0 | 1} dictate wether to include initial and final stop in list
+  //ie: [0,0] means to include neither, [0,1] means to include the final stop but not the initial (default is [1,1])
 
   //initialize data, this is dependent on the 'target' property
   componentDidMount(){
@@ -101,7 +104,7 @@ export default class BusStopList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   loader:{
     flex: 1,
@@ -111,8 +114,8 @@ const styles = StyleSheet.create({
   },
   list:{
     minWidth: '100%',
-    margin: 5,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    marginBottom: 100
   },
   stop:{
     justifyContent: "center",

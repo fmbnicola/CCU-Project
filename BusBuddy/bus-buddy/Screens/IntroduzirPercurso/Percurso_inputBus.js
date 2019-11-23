@@ -53,9 +53,10 @@ export default class Percurso_inputBus extends React.Component {
               accessibilityLabel = "Abrir teclado"
               keyboardType={'number-pad'}
               onChangeText={(text) => this.setState({text})}
-              value={this.state.text}/>
+              value={this.state.text}
+              onSubmitEditing={() => {this.validateNumber()}}/>
             <TouchableOpacity
-              onPress = {() => {this.validateNumber()}}  //falta por paramentos para passarem para o proximo ecra
+              onPress = {() => {this.validateNumber()}}
               style = {styles.button}
               accessibilityHint = "Confirmar autocarro"
               >

@@ -4,21 +4,13 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 
 export default class DestinationStop extends React.Component {
   static navigationOptions={
-    title: "StopsList",
+    title: "DestStop",
   };
    
     render() {
       const {navigate} = this.props.navigation;
       var {params} = this.props.navigation.state;
       console.log(params.busNumberStp);
-        /*getRouteDirections('717').then((data) => {
-        this.setState({
-          dataSource:this.state.dataSource.cloneWithRows(data),
-        })
-      });
-      */
-
-
 
       return(
           <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>

@@ -1,45 +1,59 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInput } from 'react-native';
 
+import BusStopList from './../API_components/BusStopList';
 
 export default class StopsList extends React.Component {
-  static navigationOptions={
-    title: "StopsList",
-  };
+  
+  
   constructor(props) {
       super(props);
       var {params} = this.props.navigation.state;
+      
+      this.updateSelected = this.updateSelected.bind(this);
+
       this.state = {
           numBus: params.busNumber,
-          dirBus: params.busDirection
+          ini_stop: params.ini_stop,
+          fin_stop: params.fin_stop,
+          selected: null
       };
   }
 
 
+  updateSelected(chosen_stop){
+    this.setState({
+      selected: chosen_stop
+    });
 
-    render() {
-      const {navigate} = this.props.navigation;
-      console.log("estou na lista de paragens");
-      console.log("numero do autocarro");
-      console.log(this.state.numBus);   //use me like this for bus number
-      console.log("sentido do autocarro");
-      console.log(this.state.dirBus);   //use me like this for bus direction
-
-
-
-      return(
-          <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
-            <TouchableOpacity onPress = {() => {navigate('DestStop', {})}} style = {styles.backButton}>
-                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                   <Image style = {styles.backImage} source={require('./back.png')} />
-                   <Text style = {styles.backText}>FRENTE</Text>
-                 </View>
-            </TouchableOpacity>
-            <Text style = {styles.Text}>Escolha uma destas paragens</Text>
-          </View>
-      );
-    }
+    const {navigate} = this.props.navigation;
+    navigate('DestStop', {numBus: this.state.numBus,
+                          ini_stop: this.state.chosen_stop,
+                          fin_stop: this.state.fin_stop});
   }
+
+
+  render() {
+    const {navigate} = this.props.navigation;
+
+    return(
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
+
+        <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
+          <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+            <Image style = {styles.backImage} source={require('./back.png')} />
+            <Text style = {styles.backText}>BACK</Text>
+          </View>
+        </TouchableOpacity>
+
+        <View style={{width: '100%', height: '100%'}}>
+          <BusStopList target = 'route' route_no = {this.state.numBus} initial_stop={this.state.ini_stop} final_stop={this.state.fin_stop} include={[1,0]} updateSelected = {this.updateSelected} style = {styles.stopList}/>
+        </View>
+
+      </View>
+    );
+  }
+}
 
   const styles = StyleSheet.create({
    button: {
@@ -51,9 +65,7 @@ export default class StopsList extends React.Component {
         alignItems: 'center',
         backgroundColor: 'white',
         position: 'relative',
-
-
-      },
+    },
     backButton: {
          display: 'flex',
          alignSelf: 'flex-start',
@@ -136,29 +148,5 @@ export default class StopsList extends React.Component {
      shadowOffset: { height: 10, width: 0 },
      shadowRadius: 20,
  },
- direcao2: {
-     display: 'flex',
-     height: 70,
-     width:190,
-     margin:30,
-     justifyContent: 'center',
-     alignItems: 'center',
 
-     borderRadius:20,
-     borderBottomWidth: 0.5,
-     borderBottomColor:'grey',
-     borderTopWidth: 0.5,
-     borderTopColor:'grey',
-     borderLeftWidth: 0.5,
-     borderLeftColor:'grey',
-     borderRightWidth: 0.5,
-     borderRightColor:'grey',
-     backgroundColor: '#0066cc',
-     shadowColor: '#2AC062',
-     shadowOpacity: 0.4,
-     shadowOffset: { height: 10, width: 0 },
-     shadowRadius: 20,
- },
-
-
-  });
+});
