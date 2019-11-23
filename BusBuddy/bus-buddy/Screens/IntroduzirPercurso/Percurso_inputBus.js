@@ -29,7 +29,7 @@ export default class Percurso_inputBus extends React.Component {
       const {navigate} = this.props.navigation;
       //console.log(this.state);
       return(
-        <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
+        <View style = {{flexDirection:'column', justifyContent:'space-between', alignItems:'center', position:'relative', top:'15%'}}>
           <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                   <Image style = {styles.backImage} source={require('./back.png')} />
@@ -67,65 +67,63 @@ export default class Percurso_inputBus extends React.Component {
   const styles = StyleSheet.create({
    button: {
         display: 'flex',
-        height: 50,
-        width: 50,
+        height: '50%',
+        width: '50%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
-        position: 'relative',
-        top:200,
-        left: 160,
+        backgroundColor: 'transparent',
+        //position: 'relative',
+        //top: '15%',
+        //left: '25%',
 
       },
     backButton: {
          display: 'flex',
-         height: 20,
+         height: '10%',
          justifyContent: 'center',
-         alignItems: 'center',
+         alignSelf: 'flex-start',
          backgroundColor: 'white',
-         width: 70,
+         width: '20%',
          position: 'relative',
-         left: 15,
+         left: '3%',
        },
      backImage: {
-         height: 20,
-         width: 20,
+         height: '100%',
+         width: '20%',
      },
     image: {
         display: 'flex',
         height: 50,
         width: 50,
+        resizeMode: 'contain',
         justifyContent: 'center',
-        alignItems: 'center',
     },
     Text: {
        fontSize: 28,
-       width:350,
+       width:'75%',
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'center',
-       position: 'relative',
-       top: 45,
+       //position: 'relative',
+       //top: '0%',
+       //left: '8%',
    },
    backText: {
       fontSize: 16,
-      width:100,
+      width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',
-      textAlign:'center',
-      position: 'relative',
-      right: 3,
-
-
+      textAlign:'center',      
   },
    keyBoard: {
       fontSize: 20,
-      width:350,
+      width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',
       textAlign:'center',
       position: 'relative',
-      top: 60,
+      top: '5%',
+      //left: '25%',
   },
 
 
