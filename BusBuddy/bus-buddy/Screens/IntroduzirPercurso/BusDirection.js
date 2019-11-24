@@ -163,7 +163,7 @@ export default class BusDirection extends React.Component {
   numBusText: {
     fontSize: 25,
     width:'40%', //small
-    width: '80%', //same size as destination buttons
+    //width: '80%', //same size as destination buttons
     //textTransform: 'uppercase',
     color: 'grey',
     textAlign:'center',
