@@ -140,13 +140,13 @@ const styles = StyleSheet.create({
         top: 45,*/
     },
     TextSmall: {
-        fontSize: 20,
+        fontSize: 25,
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
         /* position: 'relative',
         top: 45, */
-        width: '80%',
+        width: '85%',
         alignSelf: 'center',
         borderRadius:20,
         borderBottomWidth: 0.5,

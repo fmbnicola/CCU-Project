@@ -118,8 +118,8 @@ export default class Percurso_inputBus extends React.Component {
       textAlign:'center',      
   },
    keyBoard: {
-      fontSize: 20,
-      width:'60%',
+      fontSize: 25,
+      width:'70%',
       //textTransform: 'uppercase',
       color: 'grey',
       textAlign:'center',
