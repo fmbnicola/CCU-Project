@@ -108,7 +108,7 @@ export default class HomeScreen extends React.Component {
   },
 
   Title : {
-    fontSize: 50,
+    fontSize: 55,
     width: '90%',
     color: '#FFD214',
     textAlign: 'center',
@@ -117,12 +117,12 @@ export default class HomeScreen extends React.Component {
     },
 
   Buddy : {
-      fontSize: 50,
+      fontSize: 55,
       width: '90%',
       color: '#005389',
       textAlign: 'center',
       alignSelf: 'center',
       position: 'relative',
-      left: '11%',
+      left: '12.5%',
       },
   });
