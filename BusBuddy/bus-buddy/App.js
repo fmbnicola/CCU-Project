@@ -27,7 +27,7 @@ const bottomTabNavigator = createBottomTabNavigator(
       screen: TestNavigator,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="home" size={25} color={tintColor} />
+          <Icon name="home" size={35} color={tintColor} />
         )
       }
     },
@@ -35,7 +35,7 @@ const bottomTabNavigator = createBottomTabNavigator(
       screen: FavoritesScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="star" size={25} color={tintColor} />
+          <Icon name="star" size={35} color={tintColor} />
         )
       }
     },
@@ -43,7 +43,7 @@ const bottomTabNavigator = createBottomTabNavigator(
       screen: SettingsScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="cog" size={25} color={tintColor} />
+          <Icon name="cog" size={35} color={tintColor} />
         )
       }
     },
@@ -51,7 +51,12 @@ const bottomTabNavigator = createBottomTabNavigator(
   {
     initialRouteName: 'Navegar',
     tabBarOptions: {
-      activeTintColor: '#eb6e3d'
+      activeTintColor: '#FFD214',
+      inactiveTintColor: 'white',
+      style: {
+        backgroundColor: '#005389',
+        height: 60
+      }
     }
   }
 );
