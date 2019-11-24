@@ -98,7 +98,6 @@ export default class HomeScreen extends React.Component {
      margin: '10%',
      resizeMode: 'center',
 
-
-   },
+  },
 
   });

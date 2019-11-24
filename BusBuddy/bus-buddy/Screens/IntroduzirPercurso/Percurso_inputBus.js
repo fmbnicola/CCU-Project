@@ -67,11 +67,13 @@ export default class Percurso_inputBus extends React.Component {
   const styles = StyleSheet.create({
    button: {
         display: 'flex',
-        height: '50%',
-        width: '50%',
+        height: '20%',
+        width: '20%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
+        position: 'relative',
+        top: '30%',
         //position: 'relative',
         //top: '15%',
         //left: '25%',
