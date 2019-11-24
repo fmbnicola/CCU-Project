@@ -29,7 +29,7 @@ export default class WaitForBus extends React.Component {
         const {navigate} = this.props.navigation;
 
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
+            <View style={{justifyContent: 'space-between', alignItems: 'center', top:'15%'}}>
                 
                 <TouchableOpacity onPress = {() => {navigate('ReadyToGo', {})}} style = {styles.backButton}>
                     <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
@@ -40,7 +40,7 @@ export default class WaitForBus extends React.Component {
 
                 <Text style = {styles.Text}> Próximos Autocarros</Text>
                 <Text style = {styles.TextSmall}> {this.state.ini_stop.id} - {this.state.ini_stop.name} </Text>
-                <Text importantForAccessibility='no-hide-descendants'> {"\n\n"} </Text>
+                <Text importantForAccessibility='no-hide-descendants'> {"\n"} </Text>
                 <View pointerEvents="none" style = {styles.crop}>
                     <BusList bus_stop_id={this.state.ini_stop.id} route_id={this.state.numBus} num_results='3' updateSelected = {this.updateSelected}/>
                 </View>
@@ -67,23 +67,32 @@ export default class WaitForBus extends React.Component {
 const styles = StyleSheet.create({
     crop:{
         top: 30,
-        height: 200
+        height: 200,
     },
     Text: {
-        fontSize: 18,
-        width: '100%',
+        fontSize: 25,
+        width:'80%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
-        top: 45,
     },
     TextSmall: {
-        fontSize: 16,
-        width: '100%',
+        fontSize: 22,
+        width:'85%',
         //textTransform: 'uppercase',
-        color: '#333',
+        color: 'grey',
         textAlign:'center',
-        top: 45,
+        top: '5%',
+
+        borderRadius:10,
+        borderBottomWidth: 0.5,
+        borderBottomColor:'grey',
+        borderTopWidth: 0.5,
+        borderTopColor:'grey',
+        borderLeftWidth: 0.5,
+        borderLeftColor:'grey',
+        borderRightWidth: 0.5,
+        borderRightColor:'grey',
     },
     loader:{
         flex: 1,
@@ -93,27 +102,24 @@ const styles = StyleSheet.create({
     },
     backButton: {
         display: 'flex',
-        alignSelf: 'flex-start',
-        height: 20,
+        height: '10%',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignSelf: 'flex-start',
         backgroundColor: 'white',
-        width: 70,
+        width: '20%',
         position: 'relative',
-        left: 15,
-    },
+        left: '3%',
+      },
     backImage: {
-        height: 20,
-        width: 20,
+        height: '100%',
+        width: '20%',
     },
     backText: {
         fontSize: 16,
-        width:100,
+        width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
-        position: 'relative',
-        right: 3,
     },
     destText: {
         fontSize: 20,
@@ -124,12 +130,12 @@ const styles = StyleSheet.create({
     },
     letsgo: {
         display: 'flex',
-        margin:30,
-        height: 70,
-        width:210,
+        height: '20%',
+        width: '80%',
         justifyContent: 'center',
         alignItems: 'center',
-  
+        alignSelf: 'center',
+
         borderRadius:20,
         borderBottomWidth: 0.5,
         borderBottomColor:'grey',
@@ -139,8 +145,8 @@ const styles = StyleSheet.create({
         borderLeftColor:'grey',
         borderRightWidth: 0.5,
         borderRightColor:'grey',
-        backgroundColor: '#0066cc',
-        shadowColor: '#2AC062',
+        backgroundColor: '#47525E',
+        shadowColor: 'white',
         shadowOpacity: 0.4,
         shadowOffset: { height: 10, width: 0 },
         shadowRadius: 20,

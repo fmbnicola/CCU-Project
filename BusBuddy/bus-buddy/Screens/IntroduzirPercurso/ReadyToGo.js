@@ -38,7 +38,7 @@ export default class ReadyToGo extends React.Component {
             <Text style = {styles.Text}>Paragem selecionada:</Text>
             <Text style = {styles.SmallText}>{this.state.ini_stop.name}</Text>
             
-            <Text importantForAccessibility='no-hide-descendants'> {"\n\n\n\n\n\n"} </Text>
+            <Text importantForAccessibility='no-hide-descendants'> {"\n\n\n"} </Text>
 
             <Text style = {styles.Text}>Destino selecionado:</Text>
             <Text style = {styles.SmallText}>{this.state.fin_stop.name}</Text>

@@ -23,7 +23,7 @@ export default class InitialStop extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
+        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}>
 
             <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
@@ -54,33 +54,30 @@ export default class InitialStop extends React.Component {
 }
 
   const styles = StyleSheet.create({
-   button: {
-        display: 'flex',
-        height: 50,
-        width: 50,
-        margin: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        position: 'relative',
-
-
-      },
+    button: {
+      display: 'flex',
+      height: '20%',
+      width: '20%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'transparent',
+      position: 'relative',
+      top: '30%',
+    },
     backButton: {
-         display: 'flex',
-         alignSelf: 'flex-start',
-         height: 20,
-         justifyContent: 'center',
-         alignItems: 'center',
-         backgroundColor: 'white',
-         width: 70,
-         position: 'relative',
-         left: 15,
-       },
-     backImage: {
-         height: 20,
-         width: 20,
-     },
+        display: 'flex',
+        height: '10%',
+        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        backgroundColor: 'white',
+        width: '20%',
+        position: 'relative',
+        left: '3%',
+      },
+    backImage: {
+        height: '100%',
+        width: '20%',
+    },
     image: {
         display: 'flex',
         height: 50,
@@ -89,13 +86,11 @@ export default class InitialStop extends React.Component {
         alignItems: 'center',
     },
     Text: {
-       fontSize: 18,
-       width:350,
-       //textTransform: 'uppercase',
-       color: 'grey',
-       textAlign:'center',
-       position: 'relative',
-       top: 45,
+      fontSize: 25,
+      width:'80%',
+      //textTransform: 'uppercase',
+      color: 'grey',
+      textAlign:'center',
    },
    SmallText: {
     fontSize: 16,
@@ -108,12 +103,10 @@ export default class InitialStop extends React.Component {
   },
    backText: {
       fontSize: 16,
-      width:100,
+      width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',
       textAlign:'center',
-      position: 'relative',
-      right: 3,
 
 
   },
@@ -127,35 +120,32 @@ export default class InitialStop extends React.Component {
       top: 60,
   },
   destText: {
-     fontSize: 20,
-     width:190,
-     //textTransform: 'uppercase',
-     color: '#ffffff',
-     textAlign:'center',
+    fontSize: 25,
+    color:'white',
+    textAlign:'center',
  },
  começo: {
-     display: 'flex',
-     margin:30,
-     height: 70,
-     width:210,
-     justifyContent: 'center',
-     alignItems: 'center',
-     top:30,
+    display: 'flex',
+    height: '40%',
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
 
-     borderRadius:20,
-     borderBottomWidth: 0.5,
-     borderBottomColor:'grey',
-     borderTopWidth: 0.5,
-     borderTopColor:'grey',
-     borderLeftWidth: 0.5,
-     borderLeftColor:'grey',
-     borderRightWidth: 0.5,
-     borderRightColor:'grey',
-     backgroundColor: '#0066cc',
-     shadowColor: '#2AC062',
-     shadowOpacity: 0.4,
-     shadowOffset: { height: 10, width: 0 },
-     shadowRadius: 20,
+    borderRadius:20,
+    borderBottomWidth: 0.5,
+    borderBottomColor:'grey',
+    borderTopWidth: 0.5,
+    borderTopColor:'grey',
+    borderLeftWidth: 0.5,
+    borderLeftColor:'grey',
+    borderRightWidth: 0.5,
+    borderRightColor:'grey',
+    backgroundColor: '#47525E',
+    shadowColor: 'white',
+    shadowOpacity: 0.4,
+    shadowOffset: { height: 10, width: 0 },
+    shadowRadius: 20,
  },
 
 
