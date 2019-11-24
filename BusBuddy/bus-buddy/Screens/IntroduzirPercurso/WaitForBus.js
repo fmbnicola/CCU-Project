@@ -66,7 +66,7 @@ export default class WaitForBus extends React.Component {
 
 const styles = StyleSheet.create({
     crop:{
-        top: 30,
+        top: '5%',
         height: 200,
     },
     Text: {
