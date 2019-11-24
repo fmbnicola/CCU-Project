@@ -74,8 +74,8 @@ export default class RouteList extends React.Component {
           ItemSeparatorComponent={ () => (
             <View
               style={{
-                height: 1,
-                backgroundColor: "#CED0CE",
+                height: 7,
+                backgroundColor: "transparent",
               }}
             />
           )}
@@ -90,7 +90,8 @@ export default class RouteList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    width: '80%',
   },
   loader:{
     flex: 1,
@@ -104,9 +105,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   route:{
-    justifyContent: "center",
     alignItems: "center",
     minHeight: 50,
-    backgroundColor: "#f2f2f2"
+    backgroundColor: "#f2f2f2",
+    borderRadius:20,
+    borderBottomWidth: 0.5,
+    borderBottomColor:'grey',
+    borderTopWidth: 0.5,
+    borderTopColor:'grey',
+    borderLeftWidth: 0.5,
+    borderLeftColor:'grey',
+    borderRightWidth: 0.5,
+    borderRightColor:'grey',
   }
 });

@@ -88,8 +88,8 @@ export default class BusStopList extends React.Component {
           ItemSeparatorComponent={ () => (
             <View
               style={{
-                height: 1,
-                backgroundColor: "#CED0CE",
+                height: 7,
+                backgroundColor: "transparent",
               }}
             />
           )}
@@ -105,6 +105,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    top: '20%',
+    
   },
   loader:{
     flex: 1,
@@ -115,12 +117,19 @@ const styles = StyleSheet.create({
   list:{
     minWidth: '100%',
     backgroundColor: "#fff",
-    marginBottom: 100
   },
   stop:{
-    justifyContent: "center",
     alignItems: "center",
     minHeight: 50,
-    backgroundColor: "#f2f2f2"
+    backgroundColor: "#f2f2f2",
+    borderRadius:20,
+    borderBottomWidth: 0.5,
+    borderBottomColor:'grey',
+    borderTopWidth: 0.5,
+    borderTopColor:'grey',
+    borderLeftWidth: 0.5,
+    borderLeftColor:'grey',
+    borderRightWidth: 0.5,
+    borderRightColor:'grey',
   }
 });

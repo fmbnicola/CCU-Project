@@ -130,11 +130,12 @@ const styles = StyleSheet.create({
     },
     letsgo: {
         display: 'flex',
-        height: '20%',
+        height: '15%',
         width: '80%',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
+        top: '10%',
 
         borderRadius:20,
         borderBottomWidth: 0.5,
