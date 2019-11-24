@@ -119,13 +119,23 @@ export default class Percurso_inputBus extends React.Component {
   },
    keyBoard: {
       fontSize: 20,
-      width:'50%',
+      width:'60%',
       //textTransform: 'uppercase',
       color: 'grey',
       textAlign:'center',
       position: 'relative',
       top: '5%',
       //left: '25%',
+
+      borderRadius:10,
+      borderBottomWidth: 0.5,
+      borderBottomColor:'grey',
+      borderTopWidth: 0.5,
+      borderTopColor:'grey',
+      borderLeftWidth: 0.5,
+      borderLeftColor:'grey',
+      borderRightWidth: 0.5,
+      borderRightColor:'grey',
   },
 
 

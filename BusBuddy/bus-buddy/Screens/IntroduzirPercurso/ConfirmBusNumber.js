@@ -146,6 +146,17 @@ const styles = StyleSheet.create({
         textAlign:'center',
         /* position: 'relative',
         top: 45, */
+        width: '80%',
+        alignSelf: 'center',
+        borderRadius:20,
+        borderBottomWidth: 0.5,
+        borderBottomColor:'grey',
+        borderTopWidth: 0.5,
+        borderTopColor:'grey',
+        borderLeftWidth: 0.5,
+        borderLeftColor:'grey',
+        borderRightWidth: 0.5,
+        borderRightColor:'grey',
     },
     /*backText: {
         fontSize: 16,
