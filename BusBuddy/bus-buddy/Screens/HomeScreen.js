@@ -26,12 +26,6 @@ export default class HomeScreen extends React.Component {
     render() {
       const {navigate} = this.props.navigation;
       return(
-        //<View style={styles.botoes}>
-          /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
-          <Button title="Introduzir Percurso" onPress={() => Alert.alert('2')}/>
-          <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
-          <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
-          //<View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
           <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
           <Text style = {styles.Title}>BusBuddy</Text><Text style = {styles.Buddy}>Buddy</Text>
           <Text> {"\n"} </Text>
@@ -110,7 +104,7 @@ export default class HomeScreen extends React.Component {
   Title : {
     fontSize: 55,
     width: '90%',
-    color: '#FFD214',
+    color: '#ffc119',
     textAlign: 'center',
     alignSelf: 'center',
     position: 'absolute',
@@ -119,7 +113,7 @@ export default class HomeScreen extends React.Component {
   Buddy : {
       fontSize: 55,
       width: '90%',
-      color: '#005389',
+      color: '#003176',
       textAlign: 'center',
       alignSelf: 'center',
       position: 'relative',

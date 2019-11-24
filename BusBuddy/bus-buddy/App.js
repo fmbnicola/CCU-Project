@@ -51,10 +51,10 @@ const bottomTabNavigator = createBottomTabNavigator(
   {
     initialRouteName: 'Navegar',
     tabBarOptions: {
-      activeTintColor: '#FFD214',
+      activeTintColor: '#ffc119',
       inactiveTintColor: 'white',
       style: {
-        backgroundColor: '#005389',
+        backgroundColor: '#003176',
         height: 60
       }
     }
