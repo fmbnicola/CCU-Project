@@ -33,7 +33,7 @@ export default class HomeScreen extends React.Component {
           <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
           //<View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
           <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
-          <Text style = {styles.Title}>BusBuddy</Text>
+          <Text style = {styles.Title}>BusBuddy</Text><Text style = {styles.Buddy}>Buddy</Text>
           <Text> {"\n"} </Text>
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
@@ -113,5 +113,16 @@ export default class HomeScreen extends React.Component {
     color: '#FFD214',
     textAlign: 'center',
     alignSelf: 'center',
-  },
+    position: 'absolute',
+    },
+
+  Buddy : {
+      fontSize: 50,
+      width: '90%',
+      color: '#005389',
+      textAlign: 'center',
+      alignSelf: 'center',
+      position: 'relative',
+      left: '11%',
+      },
   });
