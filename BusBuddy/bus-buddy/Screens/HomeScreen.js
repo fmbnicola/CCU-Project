@@ -32,7 +32,9 @@ export default class HomeScreen extends React.Component {
           <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
           <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
           //<View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
-          <View style = {{flexDirection:'column', position:'relative', top:'15%'}}>
+          <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
+          <Text style = {styles.Title}>BusBuddy</Text>
+          <Text> {"\n"} </Text>
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
                  <Image style={styles.image} source={require('./bus-stop.png')} />
@@ -70,7 +72,8 @@ export default class HomeScreen extends React.Component {
     },
     button: {
         display: 'flex',
-        height: '22.5%',
+        height: '18%',
+        //height: 120,
         justifyContent: 'center',
         alignItems: 'center',
 
@@ -87,17 +90,29 @@ export default class HomeScreen extends React.Component {
     buttonText: {
        fontSize: 22,
        width:'50%',
+       //fontSize: 18,
+       //width: 200,
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'left',
    },
 
    image:{
-     width: '15%',
+     /* width: '15%',
      height: '65%',
      margin: '10%',
-     resizeMode: 'center',
+     resizeMode: 'center', */
+     right: 30,
+     width: '10%',
+     height: '135%',
+  },
 
+  Title : {
+    fontSize: 50,
+    width: '90%',
+    color: '#FFD214',
+    textAlign: 'center',
+    alignSelf: 'center',
   },
 
   });
