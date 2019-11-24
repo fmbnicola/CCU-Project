@@ -21,13 +21,15 @@ import BusesOnStop from "./Screens/ParagensProximas/BusEstimationScreen"
 //import ParagensProx from "./Screens/ParagensProximas/RoutesForSpecificStopScreen"
 import ParagensProx from "./Screens/ParagensProximas/NearestStopsScreen"
 
-import PlanearRot from "./Screens/PlanearRota/PlanearRot"
-import ConfirmBus from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
-import BusDirection from "./Screens/IntroduzirPercurso/BusDirection"
-import StopsList from "./Screens/IntroduzirPercurso/StopsList"
+import PlanearRot      from "./Screens/PlanearRota/PlanearRot"
+import ConfirmBus      from "./Screens/IntroduzirPercurso/ConfirmBusNumber"
+import BusDirection    from "./Screens/IntroduzirPercurso/BusDirection"
+import InitialStop     from "./Screens/IntroduzirPercurso/InitialStop"
+import StopsList       from "./Screens/IntroduzirPercurso/StopsList"
 import DestinationStop from "./Screens/IntroduzirPercurso/DestinationStop"
-import DestsList from "./Screens/IntroduzirPercurso/DestsList"
-import ReadyToGo from "./Screens/IntroduzirPercurso/ReadyToGo"
+import DestsList       from "./Screens/IntroduzirPercurso/DestsList"
+import ReadyToGo       from "./Screens/IntroduzirPercurso/ReadyToGo"
+import WaitForBus      from "./Screens/IntroduzirPercurso/WaitForBus"
 
 const TestNavigator = createStackNavigator({
   Home: {screen: HomeScreen},
@@ -37,11 +39,13 @@ const TestNavigator = createStackNavigator({
   Rota: {screen: PlanearRot},
   ConfirmBus: {screen: ConfirmBus},
   BusDir: {screen: BusDirection},
+  InitialStop: {screen: InitialStop},
   StopsList: {screen: StopsList},
   DestStop: {screen: DestinationStop},
   DestsList: {screen: DestsList},
   ReadyToGo: {screen: ReadyToGo},
-  BusesOnStop: {screen: BusesOnStop}
+  BusesOnStop: {screen: BusesOnStop},
+  WaitForBus: {screen: WaitForBus},
 },
 {
     headerMode: 'none',

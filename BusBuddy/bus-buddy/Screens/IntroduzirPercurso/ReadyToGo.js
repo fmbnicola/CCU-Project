@@ -25,27 +25,41 @@ export default class ReadyToGo extends React.Component {
     return(
         <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}>
 
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {})}} style = {styles.backButton}>
+            <TouchableOpacity onPress = {() => {navigate('StopsList', {})}} style = {styles.backButton}>
+                
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style = {styles.backImage} source={require('./back.png')} />
-                  <Text style = {styles.backText}>BACK</Text>
+                    <Image style = {styles.backImage} source={require('./back.png')} />
+                    <Text style = {styles.backText}>BACK</Text>
                 </View>
+
+
+            </TouchableOpacity>
+
+            <Text style = {styles.Text}>Paragem selecionada:</Text>
+            <Text style = {styles.SmallText}>{this.state.ini_stop.name}</Text>
+            
+            <Text importantForAccessibility='no-hide-descendants'> {"\n\n\n\n\n\n"} </Text>
+
+            <Text style = {styles.Text}>Destino selecionado:</Text>
+            <Text style = {styles.SmallText}>{this.state.fin_stop.name}</Text>
+          
+            <TouchableOpacity 
+                    style={styles.letsgo} 
+                    onPress = {() => {
+                        navigate('WaitForBus', {
+                            numBus: this.state.numBus,
+                            ini_stop: this.state.ini_stop,
+                            fin_stop: this.state.fin_stop
+                        })
+                    }}
+                >
+
+                <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+                        <Text style = {styles.destText}>Ver Autocarros Disponíveis</Text>
+                </View>
+
           </TouchableOpacity>
 
-          <Text style = {styles.Text}>Paragem selecionada:</Text>
-          <Text style = {styles.SmallText}>{this.state.ini_stop.name}</Text>
-          
-          <Text> {"\n\n"} </Text>
-
-          <Text style = {styles.Text}>Destino selecionado:</Text>
-          <Text style = {styles.SmallText}>{this.state.fin_stop.name}</Text>
-          
-          <TouchableOpacity style={styles.letsgo} onPress = {() => {}}>
-              <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                    <Text style = {styles.destText}>Começar Viagem</Text>
-              </View>
-          </TouchableOpacity>
-          
         </View>
     );
   }

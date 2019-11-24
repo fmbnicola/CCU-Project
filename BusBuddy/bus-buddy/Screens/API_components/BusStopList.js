@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
   stop:{
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 50
+    minHeight: 50,
+    backgroundColor: "#f2f2f2"
   }
 });

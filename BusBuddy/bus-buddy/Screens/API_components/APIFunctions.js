@@ -308,7 +308,13 @@ export const getBusStopEstimation = async(element) => {
     //Second request to get the buses
     var bus_stop_id = element.props.bus_stop_id;
     var num_results = element.props.num_results;
+    var route_id    = element.props.route_id;
+    
     num_results = (num_results == null)? '3' : num_results;
+    
+    if(route_id != null){
+        num_results = 10;
+    }
 
     fetch(api_root + "/api/v2.5/Estimations/busStop/" + bus_stop_id + "/top/" + num_results , {method: 'GET'})
     .then(response => response.json())
@@ -317,11 +323,26 @@ export const getBusStopEstimation = async(element) => {
         for(bus of responseJson){
             bus.timeLeft = getTimeLeft(bus.time);
         }
-            
-        element.setState({
-            loading: false,
-            dataSource: responseJson
-        })
+        
+        if(route_id != null){
+            responseJson = responseJson.filter(bus => bus.routeNumber == route_id);
+
+            var cutoff = (element.props.num_results == null)? '3' : element.props.num_results;
+            responseJson.slice(0,cutoff+1)
+        }
+
+        if(responseJson.length == 0){
+            element.setState({
+                loading: false,
+                serviceDown: true
+            })
+        }
+        else{
+            element.setState({
+                loading: false,
+                dataSource: responseJson
+            })
+        }       
     })
     .catch(error=>console.log(error)) //to catch the errors if any
 }

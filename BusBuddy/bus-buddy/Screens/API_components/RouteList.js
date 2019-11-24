@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   route:{
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 50
+    minHeight: 50,
+    backgroundColor: "#f2f2f2"
   }
 });

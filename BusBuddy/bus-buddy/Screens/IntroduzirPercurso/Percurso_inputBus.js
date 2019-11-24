@@ -15,7 +15,6 @@ export default class Percurso_inputBus extends React.Component {
         };
     }
 
-
     validateNumber(){
         //if nothing was typed don't accept
         if(this.state.text.length != 0){
@@ -23,6 +22,7 @@ export default class Percurso_inputBus extends React.Component {
             navigate('ConfirmBus', {busNumber: this.state.text});
         }
     }
+   
 
     //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
@@ -30,35 +30,47 @@ export default class Percurso_inputBus extends React.Component {
       //console.log(this.state);
       return(
         <View style = {{flexDirection:'column', justifyContent:'space-between', alignItems:'center', position:'relative', top:'15%'}}>
-          <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
+
+            <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
+
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style = {styles.backImage} source={require('./back.png')} />
-                  <Text style = {styles.backText}>BACK</Text>
+
+                    <Image style = {styles.backImage} source={require('./back.png')} />
+                    <Text style = {styles.backText}>BACK</Text>
+
                 </View>
-          </TouchableOpacity>
-          <Text style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
-          <TextInput style = {styles.keyBoard}
-            placeholder="Número do autocarro"
-            placeholderTextColor= "#e6e6e6"
-            underlineColorAndroid='transparent'
-            returnKeyType = 'done'
-            accessibilityRole = "keyboardkey"
-            accessibilityLiveRegion="assertive"
-            accessibilityHint = "Para selecionar o número da carreira que pretende apanhar"
-            accessibilityLabel = "Abrir teclado"
-            keyboardType={'number-pad'}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
-            onSubmitEditing={() => {this.validateNumber()}}/>
-          <TouchableOpacity
-            onPress = {() => {this.validateNumber()}}
-            style = {styles.button}
-            accessibilityHint = "Confirmar autocarro"
-            >
-                  <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                  <Image style={styles.image} source={require('./check-mark.png')} />
-                  </View>
+
             </TouchableOpacity>
+
+            <Text style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
+
+            <TextInput 
+                autoFocus={true}
+                style = {styles.keyBoard}
+                placeholder="Número do autocarro"
+                placeholderTextColor= "#AAA"
+                underlineColorAndroid='transparent'
+                returnKeyType = 'done'
+                accessibilityRole = "keyboardkey"
+                accessibilityLiveRegion="assertive"
+                accessibilityHint = "Para selecionar o número da carreira que pretende apanhar"
+                accessibilityLabel = "Abrir teclado"
+                keyboardType={'number-pad'}
+                onChangeText={(text) => this.setState({text})}
+                value={this.state.text}
+                onSubmitEditing={() => {this.validateNumber()}}/>
+
+            <TouchableOpacity
+                onPress = {() => {this.validateNumber()}}
+                style = {styles.button}
+                accessibilityHint = "Confirmar autocarro"
+            >
+                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                    <Image style={styles.image} source={require('./check-mark.png')} />
+                </View>
+
+            </TouchableOpacity>
+            
         </View>
       );
     }

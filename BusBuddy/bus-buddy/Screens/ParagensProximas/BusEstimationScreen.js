@@ -29,16 +29,14 @@ export default class BusEstimationScreen extends React.Component {
 
     //FIXME: this is where we can navigate to next screen (carrying over the info saved in the state)
     //hint: chosen_stop is an object. you can do things like chosen_stop.id, chosen_stop.name etc
-    console.log("eeioehikejiojeo");
     console.log(chosen_stop);
   }
 
 
-  //FIXME: here the coords are hard-coded... for now :P
+  //BEWARE: the view bellow has clicks disabled.. for now :)
   render() {
-    console.log("fjjjjjjjjj");
     return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View pointerEvents="none" style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text style = {styles.Text}>{this.state.stop}</Text>
         <BusList bus_stop_id={this.state.id} num_results='10' updateSelected = {this.updateSelected}/>
       </View>

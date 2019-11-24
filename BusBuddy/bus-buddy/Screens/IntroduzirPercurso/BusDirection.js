@@ -46,7 +46,7 @@ export default class BusDirection extends React.Component {
           </TouchableOpacity>
           <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.numBusText}>{this.state.numBus}</Text>
 
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {
+          <TouchableOpacity onPress = {() => {navigate('InitialStop', {
                 busNumber: this.state.numBus, 
                 fin_stop: this.state.directions.initial_stop.id,
                 ini_stop: this.state.directions.final_stop.id
@@ -56,7 +56,7 @@ export default class BusDirection extends React.Component {
                     <Text style = {styles.destText}> {this.state.directions.initial_stop.name} </Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('StopsList', {
+          <TouchableOpacity onPress = {() => {navigate('InitialStop', {
                 busNumber: this.state.numBus, 
                 fin_stop: this.state.directions.final_stop.id,
                 ini_stop: this.state.directions.initial_stop.id

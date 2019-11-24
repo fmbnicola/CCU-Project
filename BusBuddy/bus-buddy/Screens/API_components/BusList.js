@@ -89,7 +89,6 @@ export default class BusList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
   },
   loader:{
     flex: 1,
@@ -105,6 +104,7 @@ const styles = StyleSheet.create({
   bus:{
     justifyContent: "center",
     alignItems: "center",
-    minHeight: 50
+    minHeight: 50,
+    backgroundColor: "#f2f2f2"
   }
 });
