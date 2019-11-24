@@ -23,7 +23,7 @@ export default class App extends React.Component {
 //Navigator -> Allows switching between different app screens
 const bottomTabNavigator = createBottomTabNavigator(
   {
-    Home: {
+    Navegar: {
       screen: TestNavigator,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
@@ -31,7 +31,7 @@ const bottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    Favorites: {
+    Favoritos: {
       screen: FavoritesScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
@@ -39,7 +39,7 @@ const bottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    Settings: {
+    Definições: {
       screen: SettingsScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
@@ -49,7 +49,7 @@ const bottomTabNavigator = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Navegar',
     tabBarOptions: {
       activeTintColor: '#eb6e3d'
     }
