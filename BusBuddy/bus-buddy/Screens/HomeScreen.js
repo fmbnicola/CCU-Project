@@ -114,5 +114,4 @@ export default class HomeScreen extends React.Component {
     textAlign: 'center',
     alignSelf: 'center',
   },
-
   });
