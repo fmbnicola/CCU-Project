@@ -57,24 +57,26 @@ export default class ConfirmBusNumber extends React.Component {
                 </TouchableOpacity>
                 <Text style = {styles.Text}>Escolheu o autocarro </Text>
                 <Text style = {styles.TextSmall}>{this.state.numBus} - {this.state.nameBus}</Text>
-                <TouchableOpacity
-                onPress = {() => {navigate('InputBus', {})}}  //falta por paramentos para passarem para o proximo ecra
-                style = {styles.button}
-                accessibilityHint = "Negar numero do autocarro"
-                >
-                    <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                    <Image style={styles.image} source={require('./cancel.png')} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                onPress = {() => {navigate('BusDir', {busNumber:this.state.numBus})}}  //falta por paramentos para passarem para o proximo ecra
-                style = {styles.button}
-                accessibilityHint = "Confirmar numero selecionado"
-                >
-                    <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                    <Image style={styles.image} source={require('./check-mark.png')} />
-                    </View>
-                </TouchableOpacity>
+                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                    <TouchableOpacity
+                    onPress = {() => {navigate('InputBus', {})}}  //falta por paramentos para passarem para o proximo ecra
+                    style = {styles.button}
+                    accessibilityHint = "Negar numero do autocarro"
+                    >
+                        <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                        <Image style={styles.image} source={require('./cancel.png')} />
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    onPress = {() => {navigate('BusDir', {busNumber:this.state.numBus})}}  //falta por paramentos para passarem para o proximo ecra
+                    style = {styles.button}
+                    accessibilityHint = "Confirmar numero selecionado"
+                    >
+                        <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                        <Image style={styles.image} source={require('./check-mark.png')} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -84,17 +86,17 @@ export default class ConfirmBusNumber extends React.Component {
 const styles = StyleSheet.create({
     button: {
         display: 'flex',
-        height: 50,
-        width: 50,
+        height: '30%',
+        width: '30%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+        alignSelf: 'center',
+        backgroundColor: 'transparent',
         position: 'relative',
-        top:200,
-        left: 160,
+        top:'30%',
 
     },
-    backButton: {
+    /*backButton: {
         display: 'flex',
         height: 20,
         justifyContent: 'center',
@@ -107,6 +109,20 @@ const styles = StyleSheet.create({
     backImage: {
         height: 20,
         width: 20,
+    },*/
+    backButton: {
+        display: 'flex',
+        height: '10%',
+        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        backgroundColor: 'white',
+        width: '20%',
+        position: 'relative',
+        left: '3%',
+      },
+    backImage: {
+        height: '100%',
+        width: '20%',
     },
     image: {
         display: 'flex',
@@ -120,18 +136,18 @@ const styles = StyleSheet.create({
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
-        position: 'relative',
-        top: 45,
+        /* position: 'relative',
+        top: 45,*/
     },
     TextSmall: {
         fontSize: 20,
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
-        position: 'relative',
-        top: 45,
+        /* position: 'relative',
+        top: 45, */
     },
-        backText: {
+    /*backText: {
         fontSize: 16,
         width:100,
         //textTransform: 'uppercase',
@@ -139,6 +155,13 @@ const styles = StyleSheet.create({
         textAlign:'center',
         position: 'relative',
         right: 3,
+    },*/
+    backText: {
+        fontSize: 16,
+        width:'50%',
+        //textTransform: 'uppercase',
+        color: 'grey',
+        textAlign:'center',      
     },
         keyBoard: {
         fontSize: 20,
