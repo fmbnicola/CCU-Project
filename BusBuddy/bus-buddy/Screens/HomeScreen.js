@@ -23,12 +23,25 @@ export default class HomeScreen extends React.Component {
     }  }*/
 
 
+    WhereAmI(){
+
+      Alert.alert(
+        'Minha Localização',
+        'De momento encontra-se na Avenida Manuel da Maia nº 34 perto da Alameda D. Afonso Henriques e junto ao Instituto Superior Técnico.',
+        [
+          {text: 'Reproduzir novamente', onPress: () => {this.WhereAmI()}},
+          {text: 'OK', onPress: () => {}},
+        ],
+        {cancelable: false},
+    );
+    }
+
     render() {
       const {navigate} = this.props.navigation;
       return(
           <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
-          <Text style = {styles.Title}>BusBuddy</Text><Text style = {styles.Buddy}>Buddy</Text>
-          <Text> {"\n"} </Text>
+          <Text style = {styles.Title}>BusBuddy</Text><Text importantForAccessibility='no-hide-descendants' style = {styles.Buddy}>Buddy</Text>
+          <Text importantForAccessibility='no-hide-descendants'> {"\n"} </Text>
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
                  <Image style={styles.image} source={require('./bus-stop.png')} />
@@ -47,7 +60,7 @@ export default class HomeScreen extends React.Component {
                     <Text style = {styles.buttonText}>Planear Rota</Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('Local', {})}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {this.WhereAmI()}} style={styles.button}>
               <View style = {{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
                 <Image style={styles.image} source={require('./local.png')} />
                     <Text style = {styles.buttonText}>Minha Localização</Text>

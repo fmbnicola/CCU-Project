@@ -107,6 +107,75 @@ export const getRouteBusStops = async (element) => {
 
 
 
+//modified for temporary use
+export const getRouteBusStops_mod = async (element, route_no, initial_stop, final_stop, include) => {
+
+
+    fetch(api_root + "/api/v2.5/Routes/" + route_no, {method: 'GET'})
+    .then(response => response.json())
+    .then((responseJson)=> {
+
+        //filter responseJson so that only bus stops are displayed
+        //routes can be circular.. or linear with up or down direction
+        var is_circ = responseJson.isCirc;
+        if(is_circ){
+            var itinerary = responseJson.variants[0].circItinerary.connections;
+        }
+        else{
+            var itinerary = responseJson.variants[0].upItinerary.connections;
+        }
+
+        //get stops
+        var stops = [] 
+        for(stop of itinerary){
+            stops.push(stop.busStop)
+        }
+
+        //get values of ini and fin properties
+        var ini_id = initial_stop.id;
+        var fin_id = final_stop.id;
+        if(ini_id != fin_id && (fin_id == null || ini_id == null)){
+            console.log("Error -> initial and final stop must be supplied");
+            return null;
+        }
+        if(ini_id == fin_id && ini_id != null){
+            console.log("Error -> initial stop is the same as final stop");
+            return null;
+        }
+
+
+        //if ini or fin stops were given, get their index in list
+        if(ini_id != null || fin_id != null){
+
+            var ini_s = stops.findIndex(stop => stop.id == ini_id);
+            var fin_s = stops.findIndex(stop => stop.id == fin_id);
+
+            if(ini_s > fin_s){
+                stops = stops.slice(fin_s, ini_s + 1);
+                stops.reverse();
+            }
+            else{
+                stops = stops.slice(ini_s, fin_s + 1);
+            }
+            
+            //include final and last stops?
+            var include = (include == null)? [1,1]: include;
+
+            stops = (include[1] == 1)? stops: stops.slice(0,stops.length-1);
+            stops = (include[0] == 1)? stops: stops.slice(1,stops.length+1);
+        }
+
+        console.log(stops);
+
+        //update element state
+        element.setState({
+            loading: false,
+            dataSource: stops
+        })
+    })
+    .catch(error=>console.log(error)) //to catch the errors if any
+}
+
 
 
 
@@ -328,7 +397,7 @@ export const getBusStopEstimation = async(element) => {
             responseJson = responseJson.filter(bus => bus.routeNumber == route_id);
 
             var cutoff = (element.props.num_results == null)? '3' : element.props.num_results;
-            responseJson.slice(0,cutoff+1)
+            responseJson = responseJson.slice(0,cutoff)
         }
 
         if(responseJson.length == 0){

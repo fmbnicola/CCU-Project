@@ -30,22 +30,25 @@ import DestinationStop from "./Screens/IntroduzirPercurso/DestinationStop"
 import DestsList       from "./Screens/IntroduzirPercurso/DestsList"
 import ReadyToGo       from "./Screens/IntroduzirPercurso/ReadyToGo"
 import WaitForBus      from "./Screens/IntroduzirPercurso/WaitForBus"
+import TravelRoute     from "./Screens/IntroduzirPercurso/TravelRoute"
+
 
 const TestNavigator = createStackNavigator({
-  Home: {screen: HomeScreen},
-  InputBus: {screen: Percurso_inputBus},
-  Local: {screen: Localizacao},
-  Paragens: {screen: ParagensProx},
-  Rota: {screen: PlanearRot},
-  ConfirmBus: {screen: ConfirmBus},
-  BusDir: {screen: BusDirection},
-  InitialStop: {screen: InitialStop},
-  StopsList: {screen: StopsList},
-  DestStop: {screen: DestinationStop},
-  DestsList: {screen: DestsList},
-  ReadyToGo: {screen: ReadyToGo},
-  BusesOnStop: {screen: BusesOnStop},
-  WaitForBus: {screen: WaitForBus},
+    Home: {screen: HomeScreen},
+    InputBus: {screen: Percurso_inputBus},
+    Local: {screen: Localizacao},
+    Paragens: {screen: ParagensProx},
+    Rota: {screen: PlanearRot},
+    ConfirmBus: {screen: ConfirmBus},
+    BusDir: {screen: BusDirection},
+    InitialStop: {screen: InitialStop},
+    StopsList: {screen: StopsList},
+    DestStop: {screen: DestinationStop},
+    DestsList: {screen: DestsList},
+    ReadyToGo: {screen: ReadyToGo},
+    BusesOnStop: {screen: BusesOnStop},
+    WaitForBus: {screen: WaitForBus},
+    TravelRoute: {screen: TravelRoute},
 },
 {
     headerMode: 'none',

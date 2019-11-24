@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 
 import BusList from './../API_components/BusList';
+import {getRouteBusStops_mod} from './../API_components/APIFunctions';
 
 export default class WaitForBus extends React.Component {
 
@@ -15,28 +16,18 @@ export default class WaitForBus extends React.Component {
             ini_stop: params.ini_stop,
             fin_stop: params.fin_stop,
             selected: null,
+            dataSource: []
         };
+    }
+
+    //this will populate dataSource with all the bus stops in the selected route
+    componentDidMount(){
+        getRouteBusStops_mod(this, this.state.numBus, this.state.ini_stop, this.state.fin_stop, [1,1]);
     }
 
     render(){
         const {navigate} = this.props.navigation;
 
-        if(this.state.loading){
-            return(
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
-                    
-                    <TouchableOpacity onPress = {() => {navigate('ReadyToGo', {})}} style = {styles.backButton}>
-                        <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-                            <Image style = {styles.backImage} source={require('./back.png')} />
-                            <Text style = {styles.backText}>BACK</Text>
-                        </View>
-                    </TouchableOpacity>
-                    
-                    <ActivityIndicator size="large" color="#0c9"/>
-
-                </View>
-            )
-        }
         return (
             <View style={{justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
                 
@@ -58,14 +49,11 @@ export default class WaitForBus extends React.Component {
                 <TouchableOpacity 
                     style={styles.letsgo} 
                     onPress = {() => {
-                        navigate('WaitForBus', {
-                            numBus: this.state.numBus,
-                            ini_stop: this.state.ini_stop,
-                            fin_stop: this.state.fin_stop
+                        navigate('TravelRoute', {
+                            allStops: this.state.dataSource,
                         })
                     }}
                 >
-
                     <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                             <Text style = {styles.destText}>Iniciar Viagem</Text>
                     </View>
