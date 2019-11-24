@@ -31,7 +31,8 @@ export default class HomeScreen extends React.Component {
           <Button title="Introduzir Percurso" onPress={() => Alert.alert('2')}/>
           <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
           <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
-          <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
+          //<View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
+          <View style = {{flexDirection:'column', position:'relative', top:'15%'}}>
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
                  <Image style={styles.image} source={require('./bus-stop.png')} />
@@ -69,7 +70,7 @@ export default class HomeScreen extends React.Component {
     },
     button: {
         display: 'flex',
-        height: 120,
+        height: '22.5%',
         justifyContent: 'center',
         alignItems: 'center',
 
@@ -84,19 +85,19 @@ export default class HomeScreen extends React.Component {
         shadowRadius: 20,
     },
     buttonText: {
-       fontSize: 18,
-       width:200,
+       fontSize: 22,
+       width:'50%',
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'left',
    },
 
    image:{
-     position:'relative',
-     right:30,
-     width:25,
-     height:25,
-     margin:30,
+     width: '15%',
+     height: '65%',
+     margin: '10%',
+     resizeMode: 'center',
+
 
    },
 
