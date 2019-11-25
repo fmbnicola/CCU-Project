@@ -39,7 +39,7 @@ export default class NearestStopsScreen extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
+      <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', top: '15%'}}>
         <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
               <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                 <Image style = {styles.backImage} source={require('./back.png')} />
