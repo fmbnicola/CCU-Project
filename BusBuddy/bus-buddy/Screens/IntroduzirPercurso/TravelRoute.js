@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, ActivityIndicator, Modal } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 
 export default class TravelRoute extends React.Component {
@@ -29,7 +30,7 @@ export default class TravelRoute extends React.Component {
 
         //add stop to passed stops
         let new_passedStops = this.state.passedStops;
-        new_passedStops.unshift(this.state.upcomingStop);
+        new_passedStops.push(this.state.upcomingStop);
     
         //increment upcoming stop index
         let new_upcomingStop_i = this.state.upcomingStop_i + 1;
@@ -97,12 +98,39 @@ export default class TravelRoute extends React.Component {
                 
                 <Modal animationType = {"slide"} transparent = {false}
                     visible = {this.state.modalVisible}
-                    onRequestClose = {() => { console.log("Modal has been closed.") } }>
+                >
 
                     <View style = {styles.modal}>
 
-                        <TouchableOpacity onPress = {() => {this.toggleModal(!this.state.modalVisible)}}>
-                            <Text>Close Modal</Text>
+                        <Text  style={styles.Text2}>Paragens Anteriores</Text>
+                        <FlatList style={styles.list}
+                            
+                            style={styles.list}
+
+                            data= {this.state.passedStops}
+
+                            extraData={this.state.passedStops}
+
+                            keyExtractor={(item, index) => index.toString()}
+
+                            renderItem = { ({ item }) => (
+                                <View style={styles.stop}>
+                                    <Text>{item.name}</Text>
+                                </View>
+                            )}
+
+                            ItemSeparatorComponent={ () => (
+                            <View
+                                style={{
+                                height: 7,
+                                backgroundColor: "transparent",
+                                }}
+                            />
+                            )}
+                        />
+
+                        <TouchableOpacity style={styles.close} onPress = {() => {this.toggleModal(!this.state.modalVisible)}}>
+                            <Text style= {styles.endText2}>Fechar</Text>
                         </TouchableOpacity>
 
                     </View>
@@ -133,6 +161,25 @@ export default class TravelRoute extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    list:{
+        minWidth: '100%',
+        margin: 5,
+        backgroundColor: "#fff",
+    },
+    stop:{
+        alignItems: "center",
+        minHeight: 50,
+        backgroundColor: "#f2f2f2",
+        borderRadius:20,
+        borderBottomWidth: 0.5,
+        borderBottomColor:'grey',
+        borderTopWidth: 0.5,
+        borderTopColor:'grey',
+        borderLeftWidth: 0.5,
+        borderLeftColor:'grey',
+        borderRightWidth: 0.5,
+        borderRightColor:'grey',
+    },
     upcomingStop:{
     },
     next:{
@@ -206,10 +253,37 @@ const styles = StyleSheet.create({
         color:'white',
         textAlign:'center',
     },
+    endText2: {
+        fontSize: 15,
+        color:'white',
+        textAlign:'center',
+    },
     modal: {
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#fff',
         padding: 100
     },
+    close:{
+        height: 36,
+        width: '80%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+
+        borderRadius:20,
+        borderBottomWidth: 0.5,
+        borderBottomColor:'grey',
+        borderTopWidth: 0.5,
+        borderTopColor:'grey',
+        borderLeftWidth: 0.5,
+        borderLeftColor:'grey',
+        borderRightWidth: 0.5,
+        borderRightColor:'grey',
+        backgroundColor: '#47525E',
+        shadowColor: 'white',
+        shadowOpacity: 0.4,
+        shadowOffset: { height: 10, width: 0 },
+        shadowRadius: 20,
+    }
 });
