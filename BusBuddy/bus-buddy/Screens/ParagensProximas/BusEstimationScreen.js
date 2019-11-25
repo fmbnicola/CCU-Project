@@ -38,15 +38,15 @@ export default class BusEstimationScreen extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-      <View pointerEvents="none" style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <TouchableOpacity onPress = {() => {navigate('ParagensProx', {})}} style = {styles.backButton}>
+      <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top: '15%'}}>
+      <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style = {styles.backButton}>
             <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
               <Image style = {styles.backImage} source={require('./back.png')} />
               <Text style = {styles.backText}>BACK</Text>
             </View>
       </TouchableOpacity>
           <Text style = {styles.Text}>{this.state.stop}</Text>
-          <BusList bus_stop_id={this.state.id} num_results='10' updateSelected = {this.updateSelected}/>
+          <BusList bus_stop_id={this.state.id} /* num_results='10' */ num_results='5' updateSelected = {this.updateSelected}/>
       </View>
     );
   }
@@ -54,18 +54,6 @@ export default class BusEstimationScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
-    button: {
-        display: 'flex',
-        height: '30%',
-        width: '30%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        backgroundColor: 'transparent',
-        position: 'relative',
-        top:'30%',
-
-    },
     /*backButton: {
         display: 'flex',
         height: 20,
