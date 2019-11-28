@@ -5,9 +5,13 @@ import { FlatList } from 'react-native-gesture-handler';
 
 export default class TravelRoute extends React.Component {
 
+
+
     constructor(props) {
         super(props);
         var {params} = this.props.navigation.state;
+
+        this.timeBetween = 4000; 
 
         this.state = {
             loading: false,
@@ -20,6 +24,10 @@ export default class TravelRoute extends React.Component {
         };
     }
 
+
+    componentDidMount(){
+        setTimeout(() => {this.passByBusStop()}, this.timeBetween)
+    }
 
     toggleModal(visible) {
         this.setState({ modalVisible: visible });
@@ -83,7 +91,7 @@ export default class TravelRoute extends React.Component {
             'Próxima Paragem: ' + stopName,
             '',
             [
-              {text: 'OK', onPress: () => {}},
+              {text: 'OK', onPress: () => {setTimeout(() => {this.passByBusStop()}, this.timeBetween)}},
             ],
             {cancelable: false},
         );
@@ -150,10 +158,10 @@ export default class TravelRoute extends React.Component {
                     <Text style= {styles.endText}>Paragens Anteriores</Text>
                 </TouchableOpacity>
                 
-                <View style={styles.next}>
+                {/*<View style={styles.next}>
                     <Text> (This button is here to simulate the bus moving)</Text>
                     <Button title='Next' onPress={() => {this.passByBusStop()}}></Button>
-                </View>
+                </View>*/}
             </View>
         )
     }
