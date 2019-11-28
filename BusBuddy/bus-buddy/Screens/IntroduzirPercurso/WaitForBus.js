@@ -30,11 +30,14 @@ export default class WaitForBus extends React.Component {
 
         return (
             <View style={{justifyContent: 'space-between', alignItems: 'center', top:'15%'}}>
-                
+
                 <TouchableOpacity onPress = {() => {navigate('ReadyToGo', {})}} style = {styles.backButton}>
                     <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                         <Image style = {styles.backImage} source={require('./back.png')} />
-                        <Text style = {styles.backText}>BACK</Text>
+                        <Text
+                        accessibilityLabel = "Botão"
+                        accessibilityHint = "Voltar"
+                        style = {styles.backText}>BACK</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -46,8 +49,8 @@ export default class WaitForBus extends React.Component {
                 </View>
 
 
-                <TouchableOpacity 
-                    style={styles.letsgo} 
+                <TouchableOpacity
+                    style={styles.letsgo}
                     onPress = {() => {
                         navigate('TravelRoute', {
                             allStops: this.state.dataSource,
@@ -55,7 +58,10 @@ export default class WaitForBus extends React.Component {
                     }}
                 >
                     <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                            <Text style = {styles.destText}>Iniciar Viagem</Text>
+                            <Text
+                            accessibilityLabel = "Botão"
+                            accessibilityHint = "Iniciar Viagem"
+                            style = {styles.destText}>Iniciar Viagem</Text>
                     </View>
 
                 </TouchableOpacity>

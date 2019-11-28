@@ -41,26 +41,35 @@ export default class BusDirection extends React.Component {
           <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                   <Image style = {styles.backImage} source={require('./back.png')} />
-                  <Text style = {styles.backText}>BACK</Text>
+                  <Text
+                  accessibilityLabel = "Botão"
+                  accessibilityHint = "Voltar"
+                  style = {styles.backText}>BACK</Text>
                 </View>
           </TouchableOpacity>
           <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.numBusText}>{this.state.numBus}</Text>
 
-          <TouchableOpacity onPress = {() => {navigate('InitialStop', {
-                busNumber: this.state.numBus, 
+          <TouchableOpacity
+            accessibilityLabel = "Botão"
+            accessibilityHint = {this.state.directions.initial_stop.name}
+            onPress = {() => {navigate('InitialStop', {
+                busNumber: this.state.numBus,
                 fin_stop: this.state.directions.initial_stop.id,
                 ini_stop: this.state.directions.final_stop.id
-              })}} 
+              })}}
               style={styles.direcao1}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.initial_stop.name} </Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('InitialStop', {
-                busNumber: this.state.numBus, 
+          <TouchableOpacity
+            accessibilityLabel = "Botão"
+            accessibilityHint = {this.state.directions.final_stop.name}
+            onPress = {() => {navigate('InitialStop', {
+                busNumber: this.state.numBus,
                 fin_stop: this.state.directions.final_stop.id,
                 ini_stop: this.state.directions.initial_stop.id
-              })}} 
+              })}}
               style={styles.direcao2}>
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Text style = {styles.destText}> {this.state.directions.final_stop.name} </Text>
@@ -182,7 +191,7 @@ export default class BusDirection extends React.Component {
     width:'50%',
     //textTransform: 'uppercase',
     color: 'grey',
-    textAlign:'center',      
+    textAlign:'center',
 },
    keyBoard: {
       fontSize: 20,

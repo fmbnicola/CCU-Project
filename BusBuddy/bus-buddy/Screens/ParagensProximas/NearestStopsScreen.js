@@ -43,7 +43,10 @@ export default class NearestStopsScreen extends React.Component {
         <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
               <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                 <Image style = {styles.backImage} source={require('./back.png')} />
-                <Text style = {styles.backText}>BACK</Text>
+                <Text
+                accessibilityLabel = "Botão"
+                accessibilityHint = "Voltar"
+                style = {styles.backText}>BACK</Text>
               </View>
         </TouchableOpacity>
         <BusStopList  target = 'nearest' updateSelected = {this.updateSelected}/>

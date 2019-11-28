@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 
 
 export default class InitialStop extends React.Component {
-  
+
   static navigationOptions={
     title: "InitialStop",
   };
@@ -18,7 +18,7 @@ export default class InitialStop extends React.Component {
         fin_stop: params.fin_stop,
     };
 }
-   
+
   render() {
     const {navigate} = this.props.navigation;
 
@@ -28,22 +28,28 @@ export default class InitialStop extends React.Component {
             <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text
+                    accessibilityLabel = "Botão"
+                    accessibilityHint = "Voltar"
+                    style = {styles.backText}>BACK</Text>
                 </View>
             </TouchableOpacity>
 
-           <TouchableOpacity 
+           <TouchableOpacity
+           accessibilityLabel = "Botão"
+           accessibilityHint = "Escolher Paragem de Começo"
                 style={styles.começo}
                 onPress = {() => {
                     navigate('StopsList', {
-                        busNumber: this.state.numBus, 
+                        busNumber: this.state.numBus,
                         fin_stop: this.state.fin_stop,
                         ini_stop: this.state.ini_stop,
                     });
-                }} 
+                }}
             >
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                    <Text style = {styles.destText}>Escolher Paragem de Começo</Text>
+                    <Text
+                     style = {styles.destText}>Escolher Paragem de Começo</Text>
               </View>
 
           </TouchableOpacity>

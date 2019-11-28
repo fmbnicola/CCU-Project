@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 import {doesRouteExist} from '../API_components/APIFunctions';
 
 export default class ConfirmBusNumber extends React.Component {
-    
-    
+
+
     static navigationOptions={
         title: "ConfirmBus",
     };
@@ -30,7 +30,7 @@ export default class ConfirmBusNumber extends React.Component {
     //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
       const {navigate} = this.props.navigation;
-    
+
         if(this.state.loading){
             return <Text>hi</Text>;
         }
@@ -40,7 +40,10 @@ export default class ConfirmBusNumber extends React.Component {
                     <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                         <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                             <Image style = {styles.backImage} source={require('./back.png')} />
-                            <Text style = {styles.backText}>BACK</Text>
+                            <Text
+                            accessibilityLabel = "Botão"
+                            accessibilityHint = "Voltar"
+                            style = {styles.backText}>BACK</Text>
                         </View>
                     </TouchableOpacity>
                     <Text style = {styles.Text}> Esse autocarro não existe </Text>
@@ -52,7 +55,10 @@ export default class ConfirmBusNumber extends React.Component {
                 <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                     <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text
+                    accessibilityLabel = "Botão"
+                    accessibilityHint = "Voltar"
+                    style = {styles.backText}>BACK</Text>
                     </View>
                 </TouchableOpacity>
                 <Text style = {styles.Text}>Escolheu o autocarro </Text>
@@ -172,7 +178,7 @@ const styles = StyleSheet.create({
         width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',
-        textAlign:'center',      
+        textAlign:'center',
     },
         keyBoard: {
         fontSize: 20,

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Alert, TouchableOpacity, Image, TextInp
 
 import BusStopList from './../API_components/BusStopList';
 
-export default class StopsList extends React.Component {
+export default class showRoute extends React.Component {
 
   static navigationOptions={
     title: "StopsList",
@@ -29,10 +29,11 @@ export default class StopsList extends React.Component {
       selected: chosen_stop
     });
 
-    const {navigate} = this.props.navigation;
+    /*const {navigate} = this.props.navigation;
     navigate('DestStop', {numBus: this.state.numBus,
                           ini_stop: chosen_stop,
                           fin_stop: this.state.fin_stop});
+*/
   }
 
 
@@ -42,13 +43,9 @@ export default class StopsList extends React.Component {
     return(
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
 
-        <TouchableOpacity onPress = {() => {navigate('InitialStop', {})}} style = {styles.backButton}>
+        <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
           <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-            <Image style = {styles.backImage} source={require('./back.png')} />
-            <Text
-            accessibilityLabel = "Botão"
-            accessibilityHint = "Voltar"
-             style = {styles.backText}>BACK</Text>
+            <Text style = {styles.backText}>BACK</Text>
           </View>
         </TouchableOpacity>
 
@@ -111,6 +108,8 @@ export default class StopsList extends React.Component {
       textAlign:'center',
       position: 'relative',
       right: 3,
+
+
   },
    keyBoard: {
       fontSize: 20,
