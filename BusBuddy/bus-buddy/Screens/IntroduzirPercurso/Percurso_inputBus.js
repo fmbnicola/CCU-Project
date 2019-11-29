@@ -10,8 +10,8 @@ export default class Percurso_inputBus extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = { 
-            text: '' 
+        this.state = {
+            text: ''
         };
     }
 
@@ -22,7 +22,7 @@ export default class Percurso_inputBus extends React.Component {
             navigate('ConfirmBus', {busNumber: this.state.text});
         }
     }
-   
+
 
     //ACRESCENTAR MANDAR O STATE E VER COMO RECEBER PARAMETROS
     render() {
@@ -36,7 +36,10 @@ export default class Percurso_inputBus extends React.Component {
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
 
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>Voltar</Text>
+                    <Text
+                    accessibilityLabel = "Botão"
+                    accessibilityHint = "Voltar"
+                    style = {styles.backText}>BACK</Text>
 
                 </View>
 
@@ -44,7 +47,7 @@ export default class Percurso_inputBus extends React.Component {
 
             <Text  accessibilityLiveRegion="assertive" style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
 
-            <TextInput 
+            <TextInput
                 autoFocus={true}
                 style = {styles.keyBoard}
                 placeholder=""
@@ -64,6 +67,7 @@ export default class Percurso_inputBus extends React.Component {
             <TouchableOpacity
                 onPress = {() => {this.validateNumber()}}
                 style = {styles.button}
+                accessibilityLabel = "Butao"
                 accessibilityHint = "Confirmar autocarro"
             >
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
@@ -71,7 +75,7 @@ export default class Percurso_inputBus extends React.Component {
                 </View>
 
             </TouchableOpacity>
-            
+
         </View>
       );
     }
@@ -128,7 +132,7 @@ export default class Percurso_inputBus extends React.Component {
       width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',
-      textAlign:'center',      
+      textAlign:'center',
   },
    keyBoard: {
       fontSize: 25,

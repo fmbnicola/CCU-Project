@@ -20,16 +20,21 @@ export default class PlanearRot extends React.Component {
 
 
     render() {
+      const {navigate} = this.props.navigation;
       return(
-        //<View style={styles.botoes}>
-          /*<Button title="Paragens Próximas" accessibilityLabel="texto cegos" color="black" onPress={() => Alert.alert('1')}/>
-          <Button title="Introduzir Percurso" onPress={() => Alert.alert('2')}/>
-          <Button title="Planear Rota" onPress={() => Alert.alert('3')}/>
-          <Button title="Minha Localização" onPress={() => Alert.alert('4')}/>*/
           <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
-          <TouchableOpacity onPress = {() => {Alert.alert('4')}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
+                <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
+                  <Image style = {styles.backImage} source={require('./back.png')} />
+                  <Text
+                  accessibilityLabel = "Botão"
+                  accessibilityHint = "Voltar"
+                  style = {styles.backText}>BACK</Text>
+               </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
-                     <Text style = {styles.buttonText}>Planear Rota</Text>
+                     <Text style = {styles.buttonText}>De momento não está implementado</Text>
                </View>
           </TouchableOpacity>
           </View>
@@ -65,6 +70,28 @@ export default class PlanearRot extends React.Component {
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'left',
+   },
+
+   backButton: {
+       display: 'flex',
+       height: '10%',
+       justifyContent: 'center',
+       alignSelf: 'flex-start',
+       backgroundColor: 'white',
+       width: '20%',
+       position: 'relative',
+       left: '3%',
+     },
+   backImage: {
+       height: '100%',
+       width: '20%',
+   },
+   image: {
+       display: 'flex',
+       height: 50,
+       width: 50,
+       justifyContent: 'center',
+       alignItems: 'center',
    },
 
   });

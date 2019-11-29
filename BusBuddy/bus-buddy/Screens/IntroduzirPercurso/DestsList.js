@@ -12,7 +12,7 @@ export default class DestsList extends React.Component {
   constructor(props) {
       super(props);
       var {params} = this.props.navigation.state;
-      
+
       this.updateSelected = this.updateSelected.bind(this);
 
       this.state = {
@@ -45,7 +45,10 @@ export default class DestsList extends React.Component {
         <TouchableOpacity onPress = {() => {navigate('DestStop', {})}} style = {styles.backButton}>
           <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
             <Image style = {styles.backImage} source={require('./back.png')} />
-            <Text style = {styles.backText}>Voltar</Text>
+            <Text
+            accessibilityLabel = "Botão"
+            accessibilityHint = "Voltar"
+            style = {styles.backText}>BACK</Text>
           </View>
         </TouchableOpacity>
 

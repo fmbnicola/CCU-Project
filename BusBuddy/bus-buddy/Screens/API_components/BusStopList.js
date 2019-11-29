@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   StyleSheet,
   View,
   ActivityIndicator,
@@ -22,7 +22,7 @@ export default class BusStopList extends React.Component {
 
   //CUSTOM PROPERTIES
   //target       -> ['all', 'nearest', 'route'...] ('all' is default)
-  
+
   //To be used when target='route':
   //route_no     -> (mandatory) must be a valid route_number
   //initial_stop -> (mandatory*) must be a valid bus_stop_id, will cut the list short if its not the first stop in route
@@ -65,8 +65,8 @@ export default class BusStopList extends React.Component {
   //render busStopList
   render(){
     if(this.state.loading){
-      return( 
-        <View style={styles.loader}> 
+      return(
+        <View style={styles.loader}>
           <ActivityIndicator size="large" color="#0c9"/>
         </View>
     )}
@@ -79,9 +79,10 @@ export default class BusStopList extends React.Component {
           data= {this.state.dataSource}
 
           keyExtractor = { (item) => item.id.toString()}
-          
+
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.stop} onPress={this.selectStop.bind(this, item)}>
+            <TouchableOpacity
+            style={styles.stop} onPress={this.selectStop.bind(this, item)}>
               <Text>{item.name}</Text>
               <Text>{item.publicId}</Text>
             </TouchableOpacity>
@@ -99,7 +100,7 @@ export default class BusStopList extends React.Component {
       </View>
     )
   }
-  
+
 }
 
 //Stylesheet
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    
+
   },
   loader:{
     flex: 1,
