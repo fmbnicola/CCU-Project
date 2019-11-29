@@ -74,6 +74,8 @@ export default class BusStopList extends React.Component {
      <View style={styles.container}>
       <FlatList style={styles.list}
 
+          accessibilityLabel='Lista de Paragens'
+
           data= {this.state.dataSource}
 
           keyExtractor = { (item) => item.id.toString()}

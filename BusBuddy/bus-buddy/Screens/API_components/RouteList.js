@@ -60,6 +60,8 @@ export default class RouteList extends React.Component {
      <View style={styles.container}>
       <FlatList style={styles.list}
 
+          accessibilityLabel='Lista de Rotas'
+
           data= {this.state.dataSource}
 
           keyExtractor = { (item) => item.id.toString()}

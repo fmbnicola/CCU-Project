@@ -42,7 +42,7 @@ export default class BusEstimationScreen extends React.Component {
       <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style = {styles.backButton}>
             <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
               <Image style = {styles.backImage} source={require('./back.png')} />
-              <Text style = {styles.backText}>BACK</Text>
+              <Text style = {styles.backText}>Voltar</Text>
             </View>
       </TouchableOpacity>
           <Text style = {styles.Text}>{this.state.stop}</Text>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         right: 3,
     },*/
     backText: {
-        fontSize: 16,
+        fontSize: 15,
         width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',

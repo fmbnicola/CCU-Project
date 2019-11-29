@@ -58,6 +58,8 @@ export default class BusList extends React.Component {
      <View style={styles.container}>
       <FlatList style={styles.list}
 
+          accessibilityLabel='Lista de Autocarros'
+
           data= {this.state.dataSource}
 
           keyExtractor={(item, index) => index.toString()}
@@ -66,7 +68,7 @@ export default class BusList extends React.Component {
             <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
               <Text>{item.routeNumber} - {item.routeName}</Text>
               <Text>Sentido: {item.destination}</Text>
-              <Text>{item.timeLeft} mins</Text>
+              <Text>{item.timeLeft} minutos</Text>
             </TouchableOpacity>
           )}
 

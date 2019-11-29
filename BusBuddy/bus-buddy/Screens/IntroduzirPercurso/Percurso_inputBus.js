@@ -36,25 +36,26 @@ export default class Percurso_inputBus extends React.Component {
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
 
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text style = {styles.backText}>Voltar</Text>
 
                 </View>
 
             </TouchableOpacity>
 
-            <Text style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
+            <Text  accessibilityLiveRegion="assertive" style = {styles.Text}>Escolha o número do autocarro que pretende apanhar</Text>
 
             <TextInput 
                 autoFocus={true}
                 style = {styles.keyBoard}
-                placeholder="Número do autocarro"
+                placeholder=""
                 placeholderTextColor= "#AAA"
                 underlineColorAndroid='transparent'
                 returnKeyType = 'done'
                 accessibilityRole = "keyboardkey"
-                accessibilityLiveRegion="assertive"
-                accessibilityHint = "Para selecionar o número da carreira que pretende apanhar"
-                accessibilityLabel = "Abrir teclado"
+                
+                accessibilityLabel = "Teclado"
+                accessibilityHint = "Para ativar, Duplo clique e fique a primir"
+                
                 keyboardType={'number-pad'}
                 onChangeText={(text) => this.setState({text})}
                 value={this.state.text}
@@ -123,7 +124,7 @@ export default class Percurso_inputBus extends React.Component {
        //left: '8%',
    },
    backText: {
-      fontSize: 16,
+      fontSize: 15,
       width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',

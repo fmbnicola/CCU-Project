@@ -11,7 +11,7 @@ export default class TravelRoute extends React.Component {
         super(props);
         var {params} = this.props.navigation.state;
 
-        this.timeBetween = 4000; 
+        this.timeBetween = 6000; 
 
         this.state = {
             loading: false,

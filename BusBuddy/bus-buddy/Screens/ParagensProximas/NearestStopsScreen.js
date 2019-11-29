@@ -22,31 +22,24 @@ export default class NearestStopsScreen extends React.Component {
     });
     const {navigate} = this.props.navigation;
     navigate('BusesOnStop', {stopName: chosen_stop.name, id:chosen_stop.publicId });
-
-
-
-    //FIXME: this is where we can navigate to next screen (carrying over the info saved in the state)
-    //hint: chosen_stop is an object. you can do things like chosen_stop.id, chosen_stop.name etc
-    console.log("neares");
-    console.log(chosen_stop);
   }
 
 
   //FIXME: here the coords are hard-coded... for now :P
   render() {
-    console.log("this.updateSelected");
-    console.log(this.updateSelected);
     const {navigate} = this.props.navigation;
 
     return(
       <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', top: '15%'}}>
-        <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
+        <TouchableOpacity importantForAccessibility='yes' onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
               <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                 <Image style = {styles.backImage} source={require('./back.png')} />
-                <Text style = {styles.backText}>BACK</Text>
+                <Text style = {styles.backText}>Voltar</Text>
               </View>
         </TouchableOpacity>
-        <BusStopList  target = 'nearest' updateSelected = {this.updateSelected}/>
+        <View>
+          <BusStopList  target = 'nearest' updateSelected = {this.updateSelected}/>
+        </View>
       </View>
     );
   }
@@ -137,7 +130,7 @@ const styles = StyleSheet.create({
         right: 3,
     },*/
     backText: {
-        fontSize: 16,
+        fontSize: 15,
         width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',

@@ -29,7 +29,7 @@ export default class ReadyToGo extends React.Component {
                 
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text style = {styles.backText}>Voltar</Text>
                 </View>
 
 
@@ -175,7 +175,7 @@ export default class ReadyToGo extends React.Component {
         textAlign:'center',
         position: 'relative',
         right: 3, */
-        fontSize: 16,
+        fontSize: 15,
         width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',

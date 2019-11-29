@@ -40,7 +40,7 @@ export default class ConfirmBusNumber extends React.Component {
                     <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                         <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                             <Image style = {styles.backImage} source={require('./back.png')} />
-                            <Text style = {styles.backText}>BACK</Text>
+                            <Text style = {styles.backText}>Voltar</Text>
                         </View>
                     </TouchableOpacity>
                     <Text style = {styles.Text}> Esse autocarro não existe </Text>
@@ -52,7 +52,7 @@ export default class ConfirmBusNumber extends React.Component {
                 <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                     <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text style = {styles.backText}>Voltar</Text>
                     </View>
                 </TouchableOpacity>
                 <Text style = {styles.Text}>Escolheu o autocarro </Text>
@@ -61,7 +61,8 @@ export default class ConfirmBusNumber extends React.Component {
                     <TouchableOpacity
                     onPress = {() => {navigate('InputBus', {})}}  //falta por paramentos para passarem para o proximo ecra
                     style = {styles.button}
-                    accessibilityHint = "Negar numero do autocarro"
+                    accessibilityLabel='Botão'
+                    accessibilityHint = "Negar numero selecionado"
                     >
                         <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                         <Image style={styles.image} source={require('./cancel.png')} />
@@ -70,6 +71,7 @@ export default class ConfirmBusNumber extends React.Component {
                     <TouchableOpacity
                     onPress = {() => {navigate('BusDir', {busNumber:this.state.numBus})}}  //falta por paramentos para passarem para o proximo ecra
                     style = {styles.button}
+                    accessibilityLabel='Botão'
                     accessibilityHint = "Confirmar numero selecionado"
                     >
                         <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
         right: 3,
     },*/
     backText: {
-        fontSize: 16,
+        fontSize: 15,
         width:'50%',
         //textTransform: 'uppercase',
         color: 'grey',

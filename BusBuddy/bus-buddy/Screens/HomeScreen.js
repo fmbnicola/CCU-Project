@@ -40,7 +40,7 @@ export default class HomeScreen extends React.Component {
       const {navigate} = this.props.navigation;
       return(
           <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
-          <Text style = {styles.Title}>BusBuddy</Text><Text importantForAccessibility='no-hide-descendants' style = {styles.Buddy}>Buddy</Text>
+          <Text style = {styles.Title} accessibilityLabel = 'Bus Baddy Menu Principal'>BusBuddy</Text><Text importantForAccessibility='no-hide-descendants' style = {styles.Buddy}>Buddy</Text>
           <Text importantForAccessibility='no-hide-descendants'> {"\n"} </Text>
           <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>

@@ -28,7 +28,7 @@ export default class InitialStop extends React.Component {
             <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style = {styles.backImage} source={require('./back.png')} />
-                    <Text style = {styles.backText}>BACK</Text>
+                    <Text style = {styles.backText}>Voltar</Text>
                 </View>
             </TouchableOpacity>
 
@@ -102,7 +102,7 @@ export default class InitialStop extends React.Component {
     top: 45,
   },
    backText: {
-      fontSize: 16,
+      fontSize: 15,
       width:'50%',
       //textTransform: 'uppercase',
       color: 'grey',
