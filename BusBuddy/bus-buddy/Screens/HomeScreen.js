@@ -42,25 +42,25 @@ export default class HomeScreen extends React.Component {
           <View style = {{flexDirection:'column', justifyContente: 'flex-start', position:'relative', top:'10%'}}>
           <Text style = {styles.Title} accessibilityLabel = 'Bus Baddy Menu Principal'>BusBuddy</Text><Text importantForAccessibility='no-hide-descendants' style = {styles.Buddy}>Buddy</Text>
           <Text importantForAccessibility='no-hide-descendants'> {"\n"} </Text>
-          <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style={styles.button} accessibilityLabel = "Botão" accessibilityHint = "Paragens Perto de Si">
                <View style = {{flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
                  <Image style={styles.image} source={require('./bus-stop.png')} />
                      <Text style = {styles.buttonText}>Paragens Perto de Si</Text>
                </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style={styles.button} accessibilityLabel = "Botão" accessibilityHint = "Introduzir Percurso">
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                 <Image style={styles.image} source={require('./find.png')} />
                     <Text style = {styles.buttonText}>Introduzir Percurso</Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {navigate('Rota', {})}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {navigate('Rota', {})}} style={styles.button} accessibilityLabel = "Botão" accessibilityHint = "Planear Rota">
               <View style = {{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                 <Image style={styles.image} source={require('./route.png')} />
                     <Text style = {styles.buttonText}>Planear Rota</Text>
               </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress = {() => {this.WhereAmI()}} style={styles.button}>
+          <TouchableOpacity onPress = {() => {this.WhereAmI()}} style={styles.button} accessibilityLabel = "Botão" accessibilityHint = "Minha Localização">
               <View style = {{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
                 <Image style={styles.image} source={require('./local.png')} />
                     <Text style = {styles.buttonText}>Minha Localização</Text>
