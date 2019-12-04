@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     backText: {
         fontSize: 15,
-        width:'50%',
+        width:'80%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',

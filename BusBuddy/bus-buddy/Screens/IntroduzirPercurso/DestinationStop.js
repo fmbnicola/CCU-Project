@@ -137,7 +137,7 @@ export default class DestinationStop extends React.Component {
   },
    backText: {
     fontSize: 15,
-    width:'50%',
+    width:'80%',
     //textTransform: 'uppercase',
     color: 'grey',
     textAlign:'center',

@@ -182,7 +182,7 @@ export default class ReadyToGo extends React.Component {
         position: 'relative',
         right: 3, */
         fontSize: 15,
-        width:'50%',
+        width:'80%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
