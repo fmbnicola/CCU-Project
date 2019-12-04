@@ -29,7 +29,7 @@ export default class PlanearRot extends React.Component {
                   <Text
                   accessibilityLabel = "Botão"
                   accessibilityHint = "Voltar"
-                  style = {styles.backText}>BACK</Text>
+                  style = {styles.backText}>VOLTAR</Text>
                </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}>
@@ -73,19 +73,19 @@ export default class PlanearRot extends React.Component {
    },
 
    backButton: {
-       display: 'flex',
-       height: '10%',
-       justifyContent: 'center',
-       alignSelf: 'flex-start',
-       backgroundColor: 'white',
-       width: '20%',
-       position: 'relative',
-       left: '3%',
-     },
-   backImage: {
-       height: '100%',
-       width: '20%',
-   },
+    display: 'flex',
+    height: '10%',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: 'white',
+    width: '20%',
+    position: 'relative',
+    left: '3%',
+  },
+  backImage: {
+    height: '100%',
+    width: '20%',
+  },
    image: {
        display: 'flex',
        height: 50,
@@ -93,5 +93,12 @@ export default class PlanearRot extends React.Component {
        justifyContent: 'center',
        alignItems: 'center',
    },
+   backText: {
+    fontSize: 15,
+    width:'80%',
+    //textTransform: 'uppercase',
+    color: 'grey',
+    textAlign:'center',
+  },
 
   });
