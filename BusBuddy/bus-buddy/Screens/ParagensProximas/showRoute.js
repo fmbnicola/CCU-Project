@@ -41,11 +41,11 @@ export default class showRoute extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', top:'15%', padding:5}}>
+      <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top:'15%'}}>
 
         <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
           <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
-            <Text style = {styles.backText}>BACK</Text>
+            <Text style = {styles.backText}>VOLTAR</Text>
           </View>
         </TouchableOpacity>
 
@@ -59,31 +59,33 @@ export default class showRoute extends React.Component {
 }
 
   const styles = StyleSheet.create({
-   button: {
-        display: 'flex',
-        height: 50,
-        width: 50,
-        margin: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        position: 'relative',
+    button: {
+      display: 'flex',
+      height: '20%',
+      width: '20%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'transparent',
+      position: 'relative',
+      top: '30%',
+      //position: 'relative',
+      //top: '15%',
+      //left: '25%',
     },
-    backButton: {
-         display: 'flex',
-         alignSelf: 'flex-start',
-         height: 20,
-         justifyContent: 'center',
-         alignItems: 'center',
-         backgroundColor: 'white',
-         width: 70,
-         position: 'relative',
-         left: 15,
-       },
-     backImage: {
-         height: 20,
-         width: 20,
-     },
+      backButton: {
+        display: 'flex',
+        height: '10%',
+        justifyContent: 'center',
+        alignSelf: 'flex-start',
+        backgroundColor: 'white',
+        width: '20%',
+        position: 'relative',
+        left: '3%',
+      },
+    backImage: {
+        height: '100%',
+        width: '20%',
+    },
     image: {
         display: 'flex',
         height: 50,
@@ -93,23 +95,17 @@ export default class showRoute extends React.Component {
     },
     Text: {
        fontSize: 18,
-       width:350,
+       width:'80%',
        //textTransform: 'uppercase',
        color: 'grey',
        textAlign:'center',
-       position: 'relative',
-       top: 45,
    },
    backText: {
-      fontSize: 16,
-      width:100,
-      //textTransform: 'uppercase',
-      color: 'grey',
-      textAlign:'center',
-      position: 'relative',
-      right: 3,
-
-
+    fontSize: 15,
+    width:'80%',
+    //textTransform: 'uppercase',
+    color: 'grey',
+    textAlign:'center',
   },
    keyBoard: {
       fontSize: 20,
@@ -122,34 +118,35 @@ export default class showRoute extends React.Component {
   },
   destText: {
      fontSize: 20,
-     width:190,
      //textTransform: 'uppercase',
-     color: '#ffffff',
+     color: 'white',
      textAlign:'center',
  },
  direcao1: {
-     display: 'flex',
-     margin:30,
-     height: 70,
-     width:190,
-     justifyContent: 'center',
-     alignItems: 'center',
-     top:27,
+    display: 'flex',
+    //margin: '30%',
+    height: '30%',
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    top: '35%',
 
-     borderRadius:20,
-     borderBottomWidth: 0.5,
-     borderBottomColor:'grey',
-     borderTopWidth: 0.5,
-     borderTopColor:'grey',
-     borderLeftWidth: 0.5,
-     borderLeftColor:'grey',
-     borderRightWidth: 0.5,
-     borderRightColor:'grey',
-     backgroundColor: '#0066cc',
-     shadowColor: '#2AC062',
-     shadowOpacity: 0.4,
-     shadowOffset: { height: 10, width: 0 },
-     shadowRadius: 20,
+    borderRadius:20,
+    borderBottomWidth: 0.5,
+    borderBottomColor:'grey',
+    borderTopWidth: 0.5,
+    borderTopColor:'grey',
+    borderLeftWidth: 0.5,
+    borderLeftColor:'grey',
+    borderRightWidth: 0.5,
+    borderRightColor:'grey',
+    backgroundColor: '#47525E',
+    //shadowColor: '#47525E',
+    shadowColor: 'white',
+    shadowOpacity: 0.4,
+    shadowOffset: { height: 10, width: 0 },
+    shadowRadius: 20,
  },
 
 });

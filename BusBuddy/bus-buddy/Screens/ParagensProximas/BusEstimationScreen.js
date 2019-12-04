@@ -44,7 +44,7 @@ export default class BusEstimationScreen extends React.Component {
               <Image style = {styles.backImage} source={require('./back.png')} />
               <Text
               accessibilityLabel = "Botão"
-              accessibilityHint = "Voltar"style = {styles.backText}>BACK</Text>
+              accessibilityHint = "Voltar"style = {styles.backText}>VOLTAR</Text>
             </View>
       </TouchableOpacity>
           <Text style = {styles.Text}>{this.state.stop}</Text>
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     },*/
     backText: {
         fontSize: 15,
-        width:'50%',
+        width:'80%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',

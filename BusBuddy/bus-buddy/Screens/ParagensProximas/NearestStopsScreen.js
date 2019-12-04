@@ -37,7 +37,7 @@ export default class NearestStopsScreen extends React.Component {
                 <Text
                 accessibilityLabel = "Botão"
                 accessibilityHint = "Voltar"
-                style = {styles.backText}>BACK</Text>
+                style = {styles.backText}>VOLTAR</Text>
               </View>
         </TouchableOpacity>
         <View>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     },*/
     backText: {
         fontSize: 15,
-        width:'50%',
+        width:'80%',
         //textTransform: 'uppercase',
         color: 'grey',
         textAlign:'center',
