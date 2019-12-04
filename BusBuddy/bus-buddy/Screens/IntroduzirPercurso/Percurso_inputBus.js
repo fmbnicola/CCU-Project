@@ -39,7 +39,7 @@ export default class Percurso_inputBus extends React.Component {
                     <Text
                     accessibilityLabel = "Botão"
                     accessibilityHint = "Voltar"
-                    style = {styles.backText}>BACK</Text>
+                    style = {styles.backText}>VOLTAR</Text>
 
                 </View>
 

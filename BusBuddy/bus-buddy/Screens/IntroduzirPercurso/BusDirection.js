@@ -44,7 +44,7 @@ export default class BusDirection extends React.Component {
                   <Text
                   accessibilityLabel = "Botão"
                   accessibilityHint = "Voltar"
-                  style = {styles.backText}>BACK</Text>
+                  style = {styles.backText}>VOLTAR</Text>
                 </View>
           </TouchableOpacity>
           <Text style = {styles.Text}>Escolha o sentido do autocarro </Text><Text style = {styles.numBusText}>{this.state.numBus}</Text>
