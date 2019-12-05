@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   StyleSheet,
   View,
   ActivityIndicator,
@@ -29,7 +29,7 @@ export default class BusList extends React.Component {
   componentDidMount(){
 
     getBusStopEstimation(this);
- 
+
   }
 
 
@@ -42,15 +42,15 @@ export default class BusList extends React.Component {
   //render RouteList
   render(){
     if(this.state.serviceDown){
-      return( 
-        <View style={styles.loader}> 
+      return(
+        <View style={styles.loader}>
           <Text>Estimation Service is down.</Text>
           <Text>Sorry for the inconvenience.</Text>
         </View>
     )}
     if(this.state.loading){
-      return( 
-        <View style={styles.loader}> 
+      return(
+        <View style={styles.loader}>
           <ActivityIndicator size="large" color="#0c9"/>
         </View>
     )}
@@ -63,9 +63,10 @@ export default class BusList extends React.Component {
           data= {this.state.dataSource}
 
           keyExtractor={(item, index) => index.toString()}
-          
+
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}>
+            <TouchableOpacity style={styles.bus} onPress={this.selectBus.bind(this, item)}
+              accessibilityRole={this.props.access}>
               <Text>{item.routeNumber} - {item.routeName}</Text>
               <Text>Sentido: {item.destination}</Text>
               <Text>{item.timeLeft} minutos</Text>
@@ -84,7 +85,7 @@ export default class BusList extends React.Component {
       </View>
     )
   }
-  
+
 }
 
 //Stylesheet
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '80%',
-    
+
   },
   loader:{
     flex: 1,

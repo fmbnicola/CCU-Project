@@ -44,8 +44,8 @@ export default class WaitForBus extends React.Component {
                 <Text style = {styles.Text}> Próximos Autocarros</Text>
                 <Text style = {styles.TextSmall}> {this.state.ini_stop.id} - {this.state.ini_stop.name} </Text>
                 <Text importantForAccessibility='no-hide-descendants'> {"\n"} </Text>
-                <View pointerEvents="none" style = {styles.crop}>
-                    <BusList bus_stop_id={this.state.ini_stop.id} route_id={this.state.numBus} num_results='3' updateSelected = {this.updateSelected}/>
+                <View pointerEvents="none" style = {styles.crop} >
+                    <BusList access = 'text' bus_stop_id={this.state.ini_stop.id} route_id={this.state.numBus} num_results='3' updateSelected = {this.updateSelected}/>
                 </View>
 
 

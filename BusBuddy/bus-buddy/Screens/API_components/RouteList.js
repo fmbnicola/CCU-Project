@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   StyleSheet,
   View,
   ActivityIndicator,
@@ -51,8 +51,8 @@ export default class RouteList extends React.Component {
   //render RouteList
   render(){
     if(this.state.loading){
-      return( 
-        <View style={styles.loader}> 
+      return(
+        <View style={styles.loader}>
           <ActivityIndicator size="large" color="#0c9"/>
         </View>
     )}
@@ -65,9 +65,10 @@ export default class RouteList extends React.Component {
           data= {this.state.dataSource}
 
           keyExtractor = { (item) => item.id.toString()}
-          
+
           renderItem = { ({ item }) => (
-            <TouchableOpacity style={styles.route} onPress={this.selectRoute.bind(this, item)}>
+            <TouchableOpacity style={styles.route} onPress={this.selectRoute.bind(this, item)}
+              accessibilityRole = "button">
               <Text>{item.routeNumber}</Text>
               <Text>{item.name}</Text>
             </TouchableOpacity>
@@ -85,7 +86,7 @@ export default class RouteList extends React.Component {
       </View>
     )
   }
-  
+
 }
 
 //Stylesheet

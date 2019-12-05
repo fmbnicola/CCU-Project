@@ -82,6 +82,7 @@ export default class BusStopList extends React.Component {
 
           renderItem = { ({ item }) => (
             <TouchableOpacity
+            accessibilityRole={this.props.access}
             style={styles.stop} onPress={this.selectStop.bind(this, item)}>
               <Text>{item.name}</Text>
               <Text>{item.publicId}</Text>

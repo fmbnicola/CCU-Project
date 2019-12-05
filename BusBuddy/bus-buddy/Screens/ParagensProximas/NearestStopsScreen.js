@@ -41,7 +41,7 @@ export default class NearestStopsScreen extends React.Component {
               </View>
         </TouchableOpacity>
         <View>
-          <BusStopList  target = 'nearest' updateSelected = {this.updateSelected}/>
+          <BusStopList  access = 'button'  target = 'nearest' updateSelected = {this.updateSelected}/>
         </View>
       </View>
     );

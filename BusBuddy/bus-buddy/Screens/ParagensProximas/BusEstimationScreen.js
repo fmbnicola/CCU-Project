@@ -48,7 +48,7 @@ export default class BusEstimationScreen extends React.Component {
             </View>
       </TouchableOpacity>
           <Text style = {styles.Text}>{this.state.stop}</Text>
-          <BusList bus_stop_id={this.state.id} /* num_results='10' */ num_results='5' updateSelected = {this.updateSelected}/>
+          <BusList access='text' bus_stop_id={this.state.id} /* num_results='10' */ num_results='5' updateSelected = {this.updateSelected}/>
       </View>
     );
   }

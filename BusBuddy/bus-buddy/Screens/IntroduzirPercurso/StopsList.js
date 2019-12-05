@@ -53,7 +53,7 @@ export default class StopsList extends React.Component {
         </TouchableOpacity>
 
         <View style={{width: '100%', height: '100%'}}>
-          <BusStopList target = 'route' route_no = {this.state.numBus} initial_stop={this.state.ini_stop} final_stop={this.state.fin_stop} include={[1,0]} updateSelected = {this.updateSelected} style = {styles.stopList}/>
+          <BusStopList access = 'button' target = 'route' route_no = {this.state.numBus} initial_stop={this.state.ini_stop} final_stop={this.state.fin_stop} include={[1,0]} updateSelected = {this.updateSelected} style = {styles.stopList}/>
         </View>
 
       </View>

@@ -11,7 +11,7 @@ export default class TravelRoute extends React.Component {
         super(props);
         var {params} = this.props.navigation.state;
 
-        this.timeBetween = 6000; 
+        this.timeBetween = 6000;
 
         this.state = {
             loading: false,
@@ -39,7 +39,7 @@ export default class TravelRoute extends React.Component {
         //add stop to passed stops
         let new_passedStops = this.state.passedStops;
         new_passedStops.push(this.state.upcomingStop);
-    
+
         //increment upcoming stop index
         let new_upcomingStop_i = this.state.upcomingStop_i + 1;
 
@@ -56,7 +56,7 @@ export default class TravelRoute extends React.Component {
     }
 
     componentDidUpdate(){
-      
+
         if(this.state.upcomingStop_i == this.state.allStops.length-1){
             this.pressStop();
         }
@@ -68,7 +68,7 @@ export default class TravelRoute extends React.Component {
             });
         }
     }
-    
+
     pressStop(){
         const {navigate} = this.props.navigation;
 
@@ -103,16 +103,16 @@ export default class TravelRoute extends React.Component {
 
         return(
             <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'center', position:'relative', top:'15%',padding:5}}>
-                
+
                 <Modal animationType = {"slide"} transparent = {false}
                     visible = {this.state.modalVisible}
                 >
 
                     <View style = {styles.modal}>
 
-                        <Text  style={styles.Text2}>Paragens Anteriores</Text>
+                        <Text  style={styles.Text2} >Paragens Anteriores</Text>
                         <FlatList style={styles.list}
-                            
+
                             style={styles.list}
 
                             data= {this.state.passedStops}
@@ -137,7 +137,7 @@ export default class TravelRoute extends React.Component {
                             )}
                         />
 
-                        <TouchableOpacity style={styles.close} onPress = {() => {this.toggleModal(!this.state.modalVisible)}}>
+                        <TouchableOpacity accessibilityRole="button" style={styles.close} onPress = {() => {this.toggleModal(!this.state.modalVisible)}}>
                             <Text style= {styles.endText2}>Fechar</Text>
                         </TouchableOpacity>
 
@@ -147,17 +147,17 @@ export default class TravelRoute extends React.Component {
                 <Text style= {styles.Text}> Aproxima-se da Paragem:</Text>
 
                 <View style = {styles.upcomingStop}>
-                    <Text style= {styles.Text2}> {this.state.upcomingStop.name} </Text> 
+                    <Text style= {styles.Text2}> {this.state.upcomingStop.name} </Text>
                 </View>
 
-                <TouchableOpacity style= {styles.endTrip} onPress={() => {navigate('Home')}}>
+                <TouchableOpacity accessibilityRole="button" style= {styles.endTrip} onPress={() => {navigate('Home')}}>
                     <Text style= {styles.endText}>Terminar Viagem</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style= {styles.passed} onPress={() => {this.toggleModal(!this.state.modalVisible)}}>
+                <TouchableOpacity accessibilityRole="button" style= {styles.passed} onPress={() => {this.toggleModal(!this.state.modalVisible)}}>
                     <Text style= {styles.endText}>Paragens Anteriores</Text>
                 </TouchableOpacity>
-                
+
                 {/*<View style={styles.next}>
                     <Text> (This button is here to simulate the bus moving)</Text>
                     <Button title='Next' onPress={() => {this.passByBusStop()}}></Button>
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: '#555',
         textAlign:'center',
-        
+
     },
     endTrip: {
         display: 'flex',
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         //top: '30%',
-   
+
         borderRadius:20,
         borderBottomWidth: 0.5,
         borderBottomColor:'grey',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         //top: '30%',
-   
+
         borderRadius:20,
         borderBottomWidth: 0.5,
         borderBottomColor:'grey',
