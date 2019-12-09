@@ -37,7 +37,9 @@ export default class BusDirection extends React.Component {
         )
     }
     return(
-        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}>
+        <View accessible={true} style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}
+          accessibilityLabel = "Novo Ecrã"
+          accessibilityHint = "Escolha o sentido do autocarro">
           <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                   <Image style = {styles.backImage} source={require('./back.png')} />

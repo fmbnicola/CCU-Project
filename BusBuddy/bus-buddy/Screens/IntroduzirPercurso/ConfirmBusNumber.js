@@ -36,7 +36,9 @@ export default class ConfirmBusNumber extends React.Component {
         }
         if(this.state.failure){
             return(
-                <View style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}>
+                <View accessible={true} style = {{flexDirection:'column', justifyContent:'space-between', position:'relative', top:'15%'}}
+                    accessibilityLabel = "Novo Ecrã"
+                    accessibilityHint = "Confirmação do número do autocarro">
                     <TouchableOpacity onPress = {() => {navigate('InputBus', {})}} style = {styles.backButton}>
                         <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                             <Image style = {styles.backImage} source={require('./back.png')} />

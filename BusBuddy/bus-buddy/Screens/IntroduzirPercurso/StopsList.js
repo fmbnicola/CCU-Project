@@ -40,7 +40,9 @@ export default class StopsList extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-      <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top:'15%'}}>
+      <View accessible={true} style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top:'15%'}}
+        accessibilityLabel = "Novo Ecrã"
+        accessibilityHint = "Selecionar Paragem de Começo da Lista">
 
         <TouchableOpacity onPress = {() => {navigate('InitialStop', {})}} style = {styles.backButton}>
           <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>

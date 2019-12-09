@@ -23,7 +23,9 @@ export default class InitialStop extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-        <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}>
+        <View accessible={true} style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}
+            accessibilityLabel = "Novo Ecrã"
+            accessibilityHint = "Escolher Paragem de Começo">
 
             <TouchableOpacity onPress = {() => {navigate('BusDir', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>

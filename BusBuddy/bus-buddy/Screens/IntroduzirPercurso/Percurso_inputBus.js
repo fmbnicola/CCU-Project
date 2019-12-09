@@ -29,7 +29,10 @@ export default class Percurso_inputBus extends React.Component {
       const {navigate} = this.props.navigation;
       //console.log(this.state);
       return(
-        <View style = {{flexDirection:'column', justifyContent:'space-between', alignItems:'center', position:'relative', top:'15%'}}>
+        <View accessible={true} style = {{flexDirection:'column', justifyContent:'space-between', alignItems:'center', position:'relative', top:'15%'}}
+            accessibilityLabel = "Novo Ecrã"
+            accessibilityHint = "Introduzir o número do autocarro"
+            >
 
             <TouchableOpacity onPress = {() => {navigate('Home', {})}} style = {styles.backButton}>
 
@@ -68,7 +71,7 @@ export default class Percurso_inputBus extends React.Component {
                 onPress = {() => {this.validateNumber()}}
                 style = {styles.button}
                 accessibilityLabel = "Butao"
-                accessibilityHint = "Confirmar autocarro"
+                accessibilityHint = "Validar autocarro"
             >
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                     <Image style={styles.image} source={require('./check-mark.png')} />

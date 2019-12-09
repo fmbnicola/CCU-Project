@@ -29,7 +29,9 @@ export default class WaitForBus extends React.Component {
         const {navigate} = this.props.navigation;
 
         return (
-            <View style={{justifyContent: 'space-between', alignItems: 'center', top:'15%'}}>
+            <View accessible={true} style={{justifyContent: 'space-between', alignItems: 'center', top:'15%'}}
+                accessibilityLabel = "Novo Ecrã"
+                accessibilityHint = "Próximos Autocarros Desejados">
 
                 <TouchableOpacity onPress = {() => {navigate('ReadyToGo', {})}} style = {styles.backButton}>
                     <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
