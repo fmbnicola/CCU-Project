@@ -24,7 +24,7 @@ export default class DestinationStop extends React.Component {
 
     return(
         <View style = {{flexDirection:'column', alignItems:'center',justifyContent:'space-between', position:'relative', top:'15%'}}>
-
+          <Text style = {styles.accessibilityTitle} accessibilityLabel = 'Novo Ecrã. Confirmar paragem de origem e escolher paragem de destino'> </Text>
           <TouchableOpacity onPress = {() => {navigate('StopsList', {})}} style = {styles.backButton}>
                 <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
                   <Image style = {styles.backImage} source={require('./back.png')} />
@@ -193,6 +193,10 @@ export default class DestinationStop extends React.Component {
     shadowOffset: { height: 10, width: 0 },
     shadowRadius: 20,
  },
+
+  accessibilityTitle: {
+    top: 0,
+  }
 
 
   });
