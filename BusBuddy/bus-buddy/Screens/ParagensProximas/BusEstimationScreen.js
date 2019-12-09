@@ -38,7 +38,10 @@ export default class BusEstimationScreen extends React.Component {
     const {navigate} = this.props.navigation;
 
     return(
-      <View style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top: '15%'}}>
+      <View accessible={true} style={{flex: 1, justifyContent: 'space-between', alignItems: 'center', top: '15%'}}
+                accessibilityLabel = "Novo Ecrã"
+                accessibilityHint = "Tempo Estimado para os Autocarros">
+        
       <TouchableOpacity onPress = {() => {navigate('Paragens', {})}} style = {styles.backButton}>
             <View style = {{flexDirection:'row',justifyContent:'space-around', alignItems:'center'}}>
               <Image style = {styles.backImage} source={require('./back.png')} />
